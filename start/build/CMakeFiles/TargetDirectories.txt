@@ -1,0 +1,8 @@
+E:/code/myos/start/build/CMakeFiles/edit_cache.dir
+E:/code/myos/start/build/CMakeFiles/rebuild_cache.dir
+E:/code/myos/start/build/source/boot/CMakeFiles/boot.dir
+E:/code/myos/start/build/source/boot/CMakeFiles/edit_cache.dir
+E:/code/myos/start/build/source/boot/CMakeFiles/rebuild_cache.dir
+E:/code/myos/start/build/source/loader/CMakeFiles/loader.dir
+E:/code/myos/start/build/source/loader/CMakeFiles/edit_cache.dir
+E:/code/myos/start/build/source/loader/CMakeFiles/rebuild_cache.dir
