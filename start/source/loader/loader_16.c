@@ -70,9 +70,28 @@ static void detect_memory(void){
 }
 
 
+uint16_t gdt_table[][4] = {
+    {0,0,0,0},
+    {0xffff,0X0000,0X9a00,0X00cf},
+    {0xffff,0X0000,0X9200,0X00cf},
+};
 
+
+// 进入保护模式
+static void enter_protect_mode(void){
+    // 关中断
+    cli();
+    // 打开A20地址线
+    uint8_t v = inb(0x92);
+    
+    outb(0x92,v | 0x2);
+    
+    lgdt((uint32_t)gdt_table,sizeof(gdt_table));
+
+}
 void loader_entry(void){
     show_msg(".......loading........\n\r");
     detect_memory();
+    enter_protect_mode();
     for(;;){}
 }
