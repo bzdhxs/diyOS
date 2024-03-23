@@ -110,11 +110,11 @@ read_loader:
     7c2d:	eb fe                	jmp    7c2d <read_loader+0x14>
 
 00007c2f <boot_entry>:
-
 /**
  * Boot的C入口函数
  * 只完成一项功能，即从磁盘找到loader文件然后加载到内容中，并跳转过去
  */
+//从C跳转到loader的汇编
 void boot_entry(void) {
     7c2f:	66 55                	push   %ebp
     7c31:	66 89 e5             	mov    %esp,%ebp
