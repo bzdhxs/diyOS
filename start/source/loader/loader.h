@@ -10,6 +10,10 @@
 #include "comm/boot_info.h"
 #include "comm/types.h"
 #include "comm/cpu_instr.h"
+
+void protect_mode_entry(void);
+
+
 // 内存检测信息结构
 typedef struct SMAP_entry {
     uint32_t BaseL; // base address uint64_t
@@ -20,5 +24,6 @@ typedef struct SMAP_entry {
     uint32_t ACPI; // extended  bit0 = 1时表明此条目应当被忽略
 }__attribute__((packed)) SMAP_entry_t;
 
+extern boot_info_t boot_info;
 
 #endif // LOADER_H

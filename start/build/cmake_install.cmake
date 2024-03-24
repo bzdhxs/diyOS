@@ -29,7 +29,7 @@ endif()
 
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
+  set(CMAKE_CROSSCOMPILING "TRUE")
 endif()
 
 # Set default install directory permissions.
@@ -41,6 +41,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("E:/code/myos/start/build/source/boot/cmake_install.cmake")
   include("E:/code/myos/start/build/source/loader/cmake_install.cmake")
+  include("E:/code/myos/start/build/source/kernel/cmake_install.cmake")
 
 endif()
 

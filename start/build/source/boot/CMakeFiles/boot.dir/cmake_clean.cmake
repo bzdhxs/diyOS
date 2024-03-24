@@ -2,10 +2,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/boot.dir/boot.c.obj"
   "CMakeFiles/boot.dir/boot.c.obj.d"
   "CMakeFiles/boot.dir/start.S.obj"
-  "boot.exe"
-  "boot.exe.manifest"
+  "boot"
+  "boot.manifest"
   "boot.pdb"
-  "libboot.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

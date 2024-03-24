@@ -13,25 +13,19 @@ set(CMAKE_MAKEFILE_DEPENDS
   "E:/cmake/share/cmake-3.23/Modules/CMakeGenericSystem.cmake"
   "E:/cmake/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake"
   "E:/cmake/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/CMakeRCInformation.cmake"
   "E:/cmake/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake"
   "E:/cmake/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake"
   "E:/cmake/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "E:/cmake/share/cmake-3.23/Modules/Compiler/GNU-ASM.cmake"
   "E:/cmake/share/cmake-3.23/Modules/Compiler/GNU-C.cmake"
   "E:/cmake/share/cmake-3.23/Modules/Compiler/GNU.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/Platform/Windows-GNU-ASM.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/Platform/Windows-windres.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/Platform/Windows.cmake"
-  "E:/cmake/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake"
+  "E:/cmake/share/cmake-3.23/Modules/Platform/Generic.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.23.1/CMakeASMCompiler.cmake"
   "CMakeFiles/3.23.1/CMakeCCompiler.cmake"
-  "CMakeFiles/3.23.1/CMakeRCCompiler.cmake"
   "CMakeFiles/3.23.1/CMakeSystem.cmake"
   "../source/boot/CMakeLists.txt"
+  "../source/kernel/CMakeLists.txt"
   "../source/loader/CMakeLists.txt"
   )
 
@@ -46,10 +40,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/boot/CMakeFiles/CMakeDirectoryInformation.cmake"
   "source/loader/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "source/kernel/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "source/boot/CMakeFiles/boot.dir/DependInfo.cmake"
   "source/loader/CMakeFiles/loader.dir/DependInfo.cmake"
+  "source/kernel/CMakeFiles/kernel.dir/DependInfo.cmake"
   )

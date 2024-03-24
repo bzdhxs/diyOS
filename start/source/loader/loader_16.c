@@ -3,7 +3,7 @@ __asm__(".code16gcc");
 
 #include "loader.h"
 
-static boot_info_t boot_info;			// 启动参数信息  用来存放检测出的内存信息
+boot_info_t boot_info;			// 启动参数信息  用来存放检测出的内存信息
 
 static void show_msg(const char *msg){
     char c;
@@ -69,7 +69,7 @@ static void detect_memory(void){
     }
 }
 
-
+// GDT表。临时用
 uint16_t gdt_table[][4] = {
     {0,0,0,0},
     {0xffff,0X0000,0X9a00,0X00cf},
@@ -81,12 +81,21 @@ uint16_t gdt_table[][4] = {
 static void enter_protect_mode(void){
     // 关中断
     cli();
-    // 打开A20地址线
+    // 开启A20地址线，使得可访问1M以上空间
+    // 使用的是Fast A20 Gate方式，见https://wiki.osdev.org/A20#Fast_A20_Gate
     uint8_t v = inb(0x92);
-    
     outb(0x92,v | 0x2);
-    
+
     lgdt((uint32_t)gdt_table,sizeof(gdt_table));
+
+//  开启cr0 
+    uint32_t cr0 = read_cr0();
+    
+    write_cr0(cr0 | (1<<0));
+
+
+//
+    far_jump(8,(uint32_t)protect_mode_entry);
 
 }
 void loader_entry(void){
