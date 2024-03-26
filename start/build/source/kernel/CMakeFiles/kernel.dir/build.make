@@ -112,7 +112,7 @@ source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
 source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/build.make
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/code/myos/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable kernel"
 	cd E:/code/myos/start/build/source/kernel && x86_64-elf-ld $(kernel_OBJECTS) $(kernel_EXTERNAL_OBJECTS) -m elf_i386 -T E:/code/myos/start/source/kernel/kernel.lds -o E:/code/myos/start/build/source/kernel/kernel.elf
-	cd E:/code/myos/start/build/source/kernel && x86_64-elf-objcopy -O binary kernel.elf E:/code/myos/start/../image/kernel.elf
+	cd E:/code/myos/start/build/source/kernel && x86_64-elf-objcopy -S kernel.elf E:/code/myos/start/../image/kernel.elf
 	cd E:/code/myos/start/build/source/kernel && x86_64-elf-objdump -x -d -S -m i386 E:/code/myos/start/build/source/kernel/kernel.elf > kernel_dis.txt
 	cd E:/code/myos/start/build/source/kernel && x86_64-elf-readelf -a E:/code/myos/start/build/source/kernel/kernel.elf > kernel_elf.txt
 

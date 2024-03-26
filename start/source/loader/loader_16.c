@@ -94,7 +94,7 @@ static void enter_protect_mode(void){
     write_cr0(cr0 | (1<<0));
 
 
-//
+// far_jump 跳转到 start.S 的 protect_mode_entry
     far_jump(8,(uint32_t)protect_mode_entry);
 
 }
