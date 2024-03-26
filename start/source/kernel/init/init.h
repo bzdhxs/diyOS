@@ -1,4 +1,5 @@
-#ifndef  __INIT_H__
-#define  __INIT_H__
+#ifndef __INIT_H__
+#define __INIT_H__
 
-#endif
+
+#endif // INIT_H

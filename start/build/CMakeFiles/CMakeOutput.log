@@ -16,13 +16,13 @@ The C compiler identification is GNU, found in "E:/code/myos/start/build/CMakeFi
 Determining if the C compiler works passed with the following output:
 Change Dir: E:/code/myos/start/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):E:/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_662ff/fast && E:/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_662ff.dir/build.make CMakeFiles/cmTC_662ff.dir/build
+Run Build Command(s):E:/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_aecdf/fast && E:/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_aecdf.dir/build.make CMakeFiles/cmTC_aecdf.dir/build
 make[1]: Entering directory 'E:/code/myos/start/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_662ff.dir/testCCompiler.c.obj
-E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_662ff.dir/testCCompiler.c.obj -c E:/code/myos/start/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_662ff
-E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  "CMakeFiles/cmTC_662ff.dir/testCCompiler.c.obj"  -o cmTC_662ff 
-x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_662ff.dir/testCCompiler.c.obj: linker input file unused because linking not done
+Building C object CMakeFiles/cmTC_aecdf.dir/testCCompiler.c.obj
+E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_aecdf.dir/testCCompiler.c.obj -c E:/code/myos/start/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_aecdf
+E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  "CMakeFiles/cmTC_aecdf.dir/testCCompiler.c.obj"  -o cmTC_aecdf 
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_aecdf.dir/testCCompiler.c.obj: linker input file unused because linking not done
 make[1]: Leaving directory 'E:/code/myos/start/build/CMakeFiles/CMakeTmp'
 
 

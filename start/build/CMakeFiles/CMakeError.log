@@ -1,18 +1,18 @@
 Detecting C compiler ABI info failed to compile with the following output:
 Change Dir: E:/code/myos/start/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):E:/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_5d8ee/fast && E:/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_5d8ee.dir/build.make CMakeFiles/cmTC_5d8ee.dir/build
+Run Build Command(s):E:/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_95d99/fast && E:/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_95d99.dir/build.make CMakeFiles/cmTC_95d99.dir/build
 make[1]: Entering directory 'E:/code/myos/start/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj
-E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables    -v -o CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj -c E:/cmake/share/cmake-3.23/Modules/CMakeCCompilerABI.c
+Building C object CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj
+E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables    -v -o CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj -c E:/cmake/share/cmake-3.23/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe
 Target: x86_64-elf
 Configured with: ../gcc-7.1.0/configure --host=i686-w64-mingw32.static --target=x86_64-elf --disable-nls --enable-languages=c,c++ --without-headers --prefix=/root/build-x86_64-elf/windows/output
 Thread model: single
 gcc version 7.1.0 (GCC) 
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
- e:/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix e:\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/ E:/cmake/share/cmake-3.23/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m32 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj -g -O0 -version -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -o C:\Users\12759\AppData\Local\Temp\ccNbYEcp.s
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+ e:/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/cc1.exe -quiet -v -iprefix e:\x86_64-elf-tools-windows\bin\../lib/gcc/x86_64-elf/7.1.0/ E:/cmake/share/cmake-3.23/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -m32 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj -g -O0 -version -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -o C:\Users\12759\AppData\Local\Temp\ccACuguk.s
 GNU C11 (GCC) version 7.1.0 (x86_64-elf)
 	compiled by GNU C version 5.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
 
@@ -33,13 +33,13 @@ GNU C11 (GCC) version 7.1.0 (x86_64-elf)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: b00064cd55ffce4efe95d0fcd6948296
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
- e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe --32 -o CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj C:\Users\12759\AppData\Local\Temp\ccNbYEcp.s
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+ e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/as.exe --32 -o CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj C:\Users\12759\AppData\Local\Temp\ccACuguk.s
 COMPILER_PATH=e:/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;e:/x86_64-elf-tools-windows/bin/../libexec/gcc/;e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
 LIBRARY_PATH=e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;e:/x86_64-elf-tools-windows/bin/../lib/gcc/;e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
-Linking C executable cmTC_5d8ee
-E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables   -v "CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj"  -o cmTC_5d8ee 
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_95d99
+E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables   -v "CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj"  -o cmTC_95d99 
 Using built-in specs.
 COLLECT_GCC=E:\x86_64-elf-tools-windows\bin\x86_64-elf-gcc.exe
 Target: x86_64-elf
@@ -48,8 +48,8 @@ Thread model: single
 gcc version 7.1.0 (GCC) 
 COMPILER_PATH=e:/x86_64-elf-tools-windows/bin/../libexec/gcc/x86_64-elf/7.1.0/;e:/x86_64-elf-tools-windows/bin/../libexec/gcc/;e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/bin/
 LIBRARY_PATH=e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/;e:/x86_64-elf-tools-windows/bin/../lib/gcc/;e:/x86_64-elf-tools-windows/bin/../lib/gcc/x86_64-elf/7.1.0/../../../../x86_64-elf/lib/
-COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'cmTC_5d8ee' '-mtune=generic' '-march=x86-64'
-x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_5d8ee.dir/CMakeCCompilerABI.c.obj: linker input file unused because linking not done
+COLLECT_GCC_OPTIONS='-g' '-c' '-O0' '-m32' '-fno-pie' '-fno-stack-protector' '-fno-asynchronous-unwind-tables' '-v' '-o' 'cmTC_95d99' '-mtune=generic' '-march=x86-64'
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_95d99.dir/CMakeCCompilerABI.c.obj: linker input file unused because linking not done
 make[1]: Leaving directory 'E:/code/myos/start/build/CMakeFiles/CMakeTmp'
 
 
@@ -58,8 +58,8 @@ Cannot copy output executable
 to destination specified by COPY_FILE:
   'E:/code/myos/start/build/CMakeFiles/3.23.1/CMakeDetermineCompilerABI_C.bin'
 Unable to find the executable at any of:
-  E:/code/myos/start/build/CMakeFiles/CMakeTmp/cmTC_5d8ee
-  E:/code/myos/start/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d8ee
-  E:/code/myos/start/build/CMakeFiles/CMakeTmp/Development/cmTC_5d8ee
+  E:/code/myos/start/build/CMakeFiles/CMakeTmp/cmTC_95d99
+  E:/code/myos/start/build/CMakeFiles/CMakeTmp/Debug/cmTC_95d99
+  E:/code/myos/start/build/CMakeFiles/CMakeTmp/Development/cmTC_95d99
 
 
