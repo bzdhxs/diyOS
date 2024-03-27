@@ -1,8 +1,14 @@
+ /*
+ * 自己动手写操作系统
+ *
+ * 32位引导代码
+ * 二级引导，负责进行硬件检测，进入保护模式，然后加载内核，并跳转至内核运行 
+ */
+
+
 
 #include "loader.h"
 #include "comm/elf.h"
-
-
 /**
     使用LBA48位模式读取磁盘
 	将内核数据存入 从100号磁盘开始 读入到内存0x100000
@@ -32,7 +38,7 @@ static void read_disk(int sector,int sector_count,uint8_t *buf){
 
 		// 读取并将数据写入到缓存中
 		for (int i = 0; i < SECTOR_SIZE / 2; i++) {
-            // inw指令  ox1F0:位数据寄存器
+            // inw指令  0X1F0:位数据寄存器
 			*data_buf++ = inw(0x1F0);
 		}
 	}
@@ -47,6 +53,7 @@ static void read_disk(int sector,int sector_count,uint8_t *buf){
  */
 
 // file_buffer = SYS_KERNEL_LOAD_ADDR = 0x100000 
+
 static uint32_t reload_elf_file (uint8_t * file_buffer){
 	// 读取的只是ELF文件，不像BIN那样可直接运行，需要从中加载出有效数据和代码
     // 简单判断是否是合法的ELF文件

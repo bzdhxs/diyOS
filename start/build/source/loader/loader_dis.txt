@@ -419,8 +419,6 @@ static void detect_memory(void){
             break;
     826b:	90                   	nop
 
-
-
     }
 }
     826c:	67 66 8d 65 f4       	lea    -0xc(%ebp),%esp
@@ -479,7 +477,7 @@ static void enter_protect_mode(void){
     82ef:	66 83 c4 04          	add    $0x4,%esp
 
 
-//
+// far_jump 跳转到 start.S 的 protect_mode_entry
     far_jump(8,(uint32_t)protect_mode_entry);
     82f3:	66 b8 03 80 00 00    	mov    $0x8003,%eax
     82f9:	66 50                	push   %eax
@@ -562,9 +560,9 @@ static inline uint16_t inw(uint16_t port){
     838a:	c3                   	ret    
 
 0000838b <read_disk>:
-
 /**
     使用LBA48位模式读取磁盘
+	将内核数据存入 从100号磁盘开始 读入到内存0x100000
     参数设置参考手册
 */
 static void read_disk(int sector,int sector_count,uint8_t *buf){
@@ -689,7 +687,7 @@ static void read_disk(int sector,int sector_count,uint8_t *buf){
     8478:	c7 45 f4 00 00       	movw   $0x0,-0xc(%di)
     847d:	00 00                	add    %al,(%bx,%si)
     847f:	eb 1d                	jmp    849e <read_disk+0x113>
-            // inw指令  ox1F0:位数据寄存器
+            // inw指令  0X1F0:位数据寄存器
 			*data_buf++ = inw(0x1F0);
     8481:	8b 5d f8             	mov    -0x8(%di),%bx
     8484:	8d 43 02             	lea    0x2(%bp,%di),%ax
@@ -720,16 +718,22 @@ static void read_disk(int sector,int sector_count,uint8_t *buf){
     84b9:	c3                   	ret    
 
 000084ba <reload_elf_file>:
+ * @return
+ */
+
+// file_buffer = SYS_KERNEL_LOAD_ADDR = 0x100000 
 
 static uint32_t reload_elf_file (uint8_t * file_buffer){
     84ba:	55                   	push   %bp
     84bb:	89 e5                	mov    %sp,%bp
     84bd:	83 ec 20             	sub    $0x20,%sp
-	
+	// 读取的只是ELF文件，不像BIN那样可直接运行，需要从中加载出有效数据和代码
+    // 简单判断是否是合法的ELF文件
+
 	Elf32_Ehdr * elf_hdr = (Elf32_Ehdr *)file_buffer;
     84c0:	8b 45 08             	mov    0x8(%di),%ax
     84c3:	89 45 e8             	mov    %ax,-0x18(%di)
-	// 判断是否为elf文件
+	
 	if((elf_hdr->e_ident[0] != 0x7f) || (elf_hdr->e_ident[1] != 'E' || (elf_hdr->e_ident[2] != 'L') 
     84c6:	8b 45 e8             	mov    -0x18(%di),%ax
     84c9:	0f b6 00             	movzbw (%bx,%si),%ax
@@ -755,6 +759,7 @@ static uint32_t reload_elf_file (uint8_t * file_buffer){
     84f9:	00 00                	add    %al,(%bx,%si)
 	}
 
+	// 然后从中加载程序头，将内容拷贝到相应的位置
 	for(int i = 0 ;i < elf_hdr->e_phnum;i++){
     84fb:	c7 45 fc 00 00       	movw   $0x0,-0x4(%di)
     8500:	00 00                	add    %al,(%bx,%si)
@@ -823,7 +828,7 @@ static uint32_t reload_elf_file (uint8_t * file_buffer){
     8581:	8b 40 0c             	mov    0xc(%bx,%si),%ax
     8584:	01 d0                	add    %dx,%ax
     8586:	89 45 f4             	mov    %ax,-0xc(%di)
-		for(int j  = 0;j < phdr->p_memsz-phdr->p_filesz;j++){
+		for(int j  = 0;j < phdr->p_memsz - phdr->p_filesz;j++){
     8589:	c7 45 ec 00 00       	movw   $0x0,-0x14(%di)
     858e:	00 00                	add    %al,(%bx,%si)
     8590:	eb 10                	jmp    85a2 <reload_elf_file+0xe8>
@@ -832,7 +837,7 @@ static uint32_t reload_elf_file (uint8_t * file_buffer){
     8595:	8d 50 01             	lea    0x1(%bx,%si),%dx
     8598:	89 55 f4             	mov    %dx,-0xc(%di)
     859b:	c6 00 00             	movb   $0x0,(%bx,%si)
-		for(int j  = 0;j < phdr->p_memsz-phdr->p_filesz;j++){
+		for(int j  = 0;j < phdr->p_memsz - phdr->p_filesz;j++){
     859e:	83 45 ec 01          	addw   $0x1,-0x14(%di)
     85a2:	8b 45 e4             	mov    -0x1c(%di),%ax
     85a5:	8b 50 14             	mov    0x14(%bx,%si),%dx
@@ -856,15 +861,14 @@ static uint32_t reload_elf_file (uint8_t * file_buffer){
     85cc:	0f 8c 35 ff          	jl     8505 <reload_elf_file+0x4b>
     85d0:	ff                   	(bad)  
     85d1:	ff c9                	dec    %cx
+
+
 	}
-
-
-
-
 }
     85d3:	c3                   	ret    
 
 000085d4 <dile>:
+
 
 static void dile(int code){
     85d4:	55                   	push   %bp
@@ -875,11 +879,14 @@ static void dile(int code){
 000085d9 <load_kernel>:
 }
 
+
+
 void load_kernel(void){
     85d9:	55                   	push   %bp
     85da:	89 e5                	mov    %sp,%bp
     85dc:	83 ec 18             	sub    $0x18,%sp
-	
+	// 读取的扇区数一定要大一些,保不准kernel.elf大小会变得很大
+	// 从100号扇区开始 读500个扇区
     read_disk(100,500,(uint8_t *)SYS_KERNEL_LOAD_ADDR);
     85df:	68 00 00             	push   $0x0
     85e2:	10 00                	adc    %al,(%bx,%si)
@@ -889,7 +896,6 @@ void load_kernel(void){
     85eb:	e8 9b fd             	call   8389 <inw+0x1d>
     85ee:	ff                   	(bad)  
     85ef:	ff 83 c4 0c          	incw   0xcc4(%bp,%di)
-
      // 解析ELF文件，并通过调用的方式，进入到内核中去执行，同时传递boot参数
 	 // 临时将elf文件先读到SYS_KERNEL_LOAD_ADDR处，再进行解析
 	uint32_t kernel_entry = reload_elf_file((uint8_t *)SYS_KERNEL_LOAD_ADDR);
@@ -909,7 +915,6 @@ void load_kernel(void){
     860e:	ff                   	(bad)  
     860f:	ff 83 c4 04          	incw   0x4c4(%bp,%di)
 	}
-
 	// 转换为函数指针，然后跳进内核
 	((void (*)(boot_info_t *))kernel_entry)(&boot_info);
     8613:	8b 45 f4             	mov    -0xc(%di),%ax
