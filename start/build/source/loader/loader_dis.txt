@@ -491,6 +491,8 @@ static void enter_protect_mode(void){
     830b:	66 c3                	retl   
 
 0000830d <loader_entry>:
+
+
 void loader_entry(void){
     830d:	66 55                	push   %ebp
     830f:	66 89 e5             	mov    %esp,%ebp

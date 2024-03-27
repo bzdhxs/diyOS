@@ -103,6 +103,8 @@ static void enter_protect_mode(void){
     far_jump(8,(uint32_t)protect_mode_entry);
 
 }
+
+
 void loader_entry(void){
     show_msg(".......loading........\n\r");
     detect_memory();
