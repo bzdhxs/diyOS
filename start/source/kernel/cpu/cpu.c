@@ -4,9 +4,9 @@
 static segment_desc_t gdt_table[GDT_TABLE_SIZE];
 
 //  设置GDT表函数
-void segment_desc_set (int selector, uint32_t base, uint32_t limit uint16_t attr){
+void segment_desc_set (int selector, uint32_t base, uint32_t limit,uint16_t attr){
 
-    segment_dect_t * desc = gdt_table + selector / sizeof(segment_desc_t);
+    segment_desc_t * desc = gdt_table + selector / sizeof(segment_desc_t);
     desc->limit15_0 = limit & 0xffff;
     desc->base15_0 = base & 0xffff;
     desc->base23_16 = (base >> 16) & 0xff;
@@ -17,7 +17,7 @@ void segment_desc_set (int selector, uint32_t base, uint32_t limit uint16_t attr
 
 void init_gdt(void){
     for(int i = 0;i < GDT_TABLE_SIZE;i++){
-        segment_desc_set(i*sizeof(segment_desc_t), 0, 0);
+        segment_desc_set(i*sizeof(segment_desc_t),0,0,0);
     }
 
 }

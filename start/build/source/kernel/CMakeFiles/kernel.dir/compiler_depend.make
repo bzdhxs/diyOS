@@ -3,6 +3,9 @@
 
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.c \
   ../source/comm/boot_info.h \
+  ../source/comm/types.h \
+  ../source/kernel/init/init.h \
+  ../source/kernel/include/cpu/cpu.h \
   ../source/comm/types.h
 
 
@@ -10,4 +13,8 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
 
 ../source/kernel/init/init.c:
 
+../source/kernel/include/cpu/cpu.h:
+
 ../source/comm/types.h:
+
+../source/kernel/init/init.h:
