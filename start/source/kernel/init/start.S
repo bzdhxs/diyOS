@@ -64,15 +64,18 @@ exception_handler_unknown:
     push %es
     push %fs
     push %gs
-
+#   这里压入 压入%gs时esp的值
+    push %esp
     call do_handler_unknown
 
     # 出栈
+    add $(1*4),%esp
     pop %gs
     pop %fs
     pop %es
     pop %ds
     popa
+
     iret
 
 
