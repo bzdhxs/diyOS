@@ -7,31 +7,31 @@ start address 0x00010000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00010000 paddr 0x00010000 align 2**12
-         filesz 0x000001a5 memsz 0x000029c0 flags rwx
+         filesz 0x00000231 memsz 0x00002e40 flags rwx
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000001a5  00010000  00010000  00001000  2**0
+  0 .text         00000231  00010000  00010000  00001000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss          00002800  000101c0  000101c0  000011a5  2**5
+  1 .bss          00002c00  00010240  00010240  00001231  2**5
                   ALLOC
-  2 .debug_line   00000207  00000000  00000000  000011a5  2**0
+  2 .debug_line   000002f4  00000000  00000000  00001231  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   000003ee  00000000  00000000  000013ac  2**0
+  3 .debug_info   0000055c  00000000  00000000  00001525  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000001e7  00000000  00000000  0000179a  2**0
+  4 .debug_abbrev 000002d2  00000000  00000000  00001a81  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000060  00000000  00000000  00001988  2**3
+  5 .debug_aranges 00000080  00000000  00000000  00001d58  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_str    00000271  00000000  00000000  000019e8  2**0
+  6 .debug_str    000002b4  00000000  00000000  00001dd8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .comment      00000011  00000000  00000000  00001c59  2**0
+  7 .comment      00000011  00000000  00000000  0000208c  2**0
                   CONTENTS, READONLY
-  8 .debug_frame  00000100  00000000  00000000  00001c6c  2**2
+  8 .debug_frame  00000154  00000000  00000000  000020a0  2**2
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00010000 l    d  .text	00000000 .text
-000101c0 l    d  .bss	00000000 .bss
+00010240 l    d  .bss	00000000 .bss
 00000000 l    d  .debug_line	00000000 .debug_line
 00000000 l    d  .debug_info	00000000 .debug_info
 00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
@@ -43,14 +43,18 @@ SYMBOL TABLE:
 00010010 l       .text	00000000 gdt_reload
 00000000 l    df *ABS*	00000000 cpu.c
 00010028 l     F .text	00000028 lgdt
-000101c0 l     O .bss	00000800 gdt_table
+00010240 l     O .bss	00000800 gdt_table
+00000000 l    df *ABS*	00000000 irq.c
+00010192 l     F .text	00000028 lidt
+00010a40 l     O .bss	00000400 idt_table
 00000000 l    df *ABS*	00000000 init.c
 00010187 g     F .text	0000000b cpu_init
-000101a0 g     F .text	00000005 init_main
-000109c0 g     O .bss	00002000 stack
-00010192 g     F .text	0000000e kernel_init
+00010219 g     F .text	00000018 init_main
+00010e40 g     O .bss	00002000 stack
+00010206 g     F .text	00000013 kernel_init
 00010000 g       .text	00000000 _start
 000100d3 g     F .text	0000006d init_gdt
+000101ba g     F .text	0000004c irq_init
 00010050 g     F .text	00000083 segment_desc_set
 00010140 g     F .text	00000047 gate_desc_set
 
@@ -69,7 +73,7 @@ Disassembly of section .text:
 
     # kernel_init(boot_info)
     call kernel_init
-   10004:	e8 89 01 00 00       	call   10192 <kernel_init>
+   10004:	e8 fd 01 00 00       	call   10206 <kernel_init>
 
 
     jmp $KERNEL_SELECTOR_CS, $gdt_reload
@@ -94,9 +98,9 @@ gdt_reload:
 
 
     mov $(stack+KERNEL_STACK_SIZE) ,%esp  // BTD
-   1001e:	bc c0 29 01 00       	mov    $0x129c0,%esp
+   1001e:	bc 40 2e 01 00       	mov    $0x12e40,%esp
     jmp init_main
-   10023:	e9 78 01 00 00       	jmp    101a0 <init_main>
+   10023:	e9 f1 01 00 00       	jmp    10219 <init_main>
 
 00010028 <lgdt>:
 static inline void sti(void){
@@ -148,7 +152,7 @@ void segment_desc_set (int selector, uint32_t base, uint32_t limit,uint16_t attr
     segment_desc_t * desc = gdt_table + selector / sizeof(segment_desc_t);
    1005d:	8b 45 08             	mov    0x8(%ebp),%eax
    10060:	83 e0 f8             	and    $0xfffffff8,%eax
-   10063:	05 c0 01 01 00       	add    $0x101c0,%eax
+   10063:	05 40 02 01 00       	add    $0x10240,%eax
    10068:	89 45 fc             	mov    %eax,-0x4(%ebp)
 
 	// 如果界限比较长，将长度单位换成4KB
@@ -248,7 +252,7 @@ void init_gdt(void){
                      | SEG_TYPE_RW | SEG_D);
 
     lgdt((uint32_t)gdt_table,sizeof(gdt_table));
-   1012a:	b8 c0 01 01 00       	mov    $0x101c0,%eax
+   1012a:	b8 40 02 01 00       	mov    $0x10240,%eax
    1012f:	68 00 08 00 00       	push   $0x800
    10134:	50                   	push   %eax
    10135:	e8 ee fe ff ff       	call   10028 <lgdt>
@@ -263,7 +267,6 @@ void init_gdt(void){
 /**
  * 设置门描述符
  */
-
 void gate_desc_set(gate_desc_t * desc, uint16_t selector, uint32_t offset, uint16_t attr) {
    10140:	55                   	push   %ebp
    10141:	89 e5                	mov    %esp,%ebp
@@ -311,29 +314,112 @@ void cpu_init (void){
    10190:	5d                   	pop    %ebp
    10191:	c3                   	ret    
 
-00010192 <kernel_init>:
+00010192 <lidt>:
+    __asm__ __volatile__("ljmpl *(%[a])"::[a]"r"(addr));
+}
+
+
+
+static inline void lidt(uint32_t start,uint32_t size){
+   10192:	55                   	push   %ebp
+   10193:	89 e5                	mov    %esp,%ebp
+   10195:	83 ec 10             	sub    $0x10,%esp
+        uint16_t limit;
+        uint16_t start15_0;
+        uint16_t start32_16;
+    }idt;
+    
+    idt.start32_16 = start >> 16;
+   10198:	8b 45 08             	mov    0x8(%ebp),%eax
+   1019b:	c1 e8 10             	shr    $0x10,%eax
+   1019e:	66 89 45 fe          	mov    %ax,-0x2(%ebp)
+    idt.start15_0 = start & 0xffff;
+   101a2:	8b 45 08             	mov    0x8(%ebp),%eax
+   101a5:	66 89 45 fc          	mov    %ax,-0x4(%ebp)
+    idt.limit = size - 1;
+   101a9:	8b 45 0c             	mov    0xc(%ebp),%eax
+   101ac:	83 e8 01             	sub    $0x1,%eax
+   101af:	66 89 45 fa          	mov    %ax,-0x6(%ebp)
+
+    __asm__ __volatile__("lidt %[g]"::[g]"m"(idt));
+   101b3:	0f 01 5d fa          	lidtl  -0x6(%ebp)
+}
+   101b7:	90                   	nop
+   101b8:	c9                   	leave  
+   101b9:	c3                   	ret    
+
+000101ba <irq_init>:
+
+#define IDE_TABLE_NR  128
+static gate_desc_t idt_table[IDE_TABLE_NR];
+
+
+void irq_init(void){
+   101ba:	55                   	push   %ebp
+   101bb:	89 e5                	mov    %esp,%ebp
+   101bd:	83 ec 18             	sub    $0x18,%esp
+    for(int i = 0;i < IDE_TABLE_NR; i++){
+   101c0:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
+   101c7:	eb 1e                	jmp    101e7 <irq_init+0x2d>
+        gate_desc_set(idt_table + i, 0, 0, 0);
+   101c9:	8b 45 f4             	mov    -0xc(%ebp),%eax
+   101cc:	c1 e0 03             	shl    $0x3,%eax
+   101cf:	05 40 0a 01 00       	add    $0x10a40,%eax
+   101d4:	6a 00                	push   $0x0
+   101d6:	6a 00                	push   $0x0
+   101d8:	6a 00                	push   $0x0
+   101da:	50                   	push   %eax
+   101db:	e8 60 ff ff ff       	call   10140 <gate_desc_set>
+   101e0:	83 c4 10             	add    $0x10,%esp
+    for(int i = 0;i < IDE_TABLE_NR; i++){
+   101e3:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
+   101e7:	83 7d f4 7f          	cmpl   $0x7f,-0xc(%ebp)
+   101eb:	7e dc                	jle    101c9 <irq_init+0xf>
+    }
+
+
+    lidt((uint32_t)idt_table,sizeof(idt_table));
+   101ed:	b8 40 0a 01 00       	mov    $0x10a40,%eax
+   101f2:	83 ec 08             	sub    $0x8,%esp
+   101f5:	68 00 04 00 00       	push   $0x400
+   101fa:	50                   	push   %eax
+   101fb:	e8 92 ff ff ff       	call   10192 <lidt>
+   10200:	83 c4 10             	add    $0x10,%esp
+   10203:	90                   	nop
+   10204:	c9                   	leave  
+   10205:	c3                   	ret    
+
+00010206 <kernel_init>:
 
 
 /**
  * 内核入口
  */
 void kernel_init (boot_info_t * boot_info){
-   10192:	55                   	push   %ebp
-   10193:	89 e5                	mov    %esp,%ebp
-   10195:	83 ec 08             	sub    $0x8,%esp
+   10206:	55                   	push   %ebp
+   10207:	89 e5                	mov    %esp,%ebp
+   10209:	83 ec 08             	sub    $0x8,%esp
     cpu_init();
-   10198:	e8 ea ff ff ff       	call   10187 <cpu_init>
+   1020c:	e8 76 ff ff ff       	call   10187 <cpu_init>
+    irq_init();
+   10211:	e8 a4 ff ff ff       	call   101ba <irq_init>
 }
-   1019d:	90                   	nop
-   1019e:	c9                   	leave  
-   1019f:	c3                   	ret    
+   10216:	90                   	nop
+   10217:	c9                   	leave  
+   10218:	c3                   	ret    
 
-000101a0 <init_main>:
+00010219 <init_main>:
 
 void init_main(void) {
-   101a0:	55                   	push   %ebp
-   101a1:	89 e5                	mov    %esp,%ebp
+   10219:	55                   	push   %ebp
+   1021a:	89 e5                	mov    %esp,%ebp
+   1021c:	83 ec 10             	sub    $0x10,%esp
 
-    
+    int a = 3 / 0;
+   1021f:	b8 03 00 00 00       	mov    $0x3,%eax
+   10224:	b9 00 00 00 00       	mov    $0x0,%ecx
+   10229:	99                   	cltd   
+   1022a:	f7 f9                	idiv   %ecx
+   1022c:	89 45 fc             	mov    %eax,-0x4(%ebp)
     for(;;){}
-   101a3:	eb fe                	jmp    101a3 <init_main+0x3>
+   1022f:	eb fe                	jmp    1022f <init_main+0x16>

@@ -99,10 +99,24 @@ source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/cpu/cpu.c.s"
 	cd E:/code/myos/start/build/source/kernel && E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/code/myos/start/source/kernel/cpu/cpu.c -o CMakeFiles/kernel.dir/cpu/cpu.c.s
 
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: ../source/kernel/cpu/irq.c
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/code/myos/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj"
+	cd E:/code/myos/start/build/source/kernel && E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj -MF CMakeFiles/kernel.dir/cpu/irq.c.obj.d -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c E:/code/myos/start/source/kernel/cpu/irq.c
+
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kernel.dir/cpu/irq.c.i"
+	cd E:/code/myos/start/build/source/kernel && E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:/code/myos/start/source/kernel/cpu/irq.c > CMakeFiles/kernel.dir/cpu/irq.c.i
+
+source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kernel.dir/cpu/irq.c.s"
+	cd E:/code/myos/start/build/source/kernel && E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/code/myos/start/source/kernel/cpu/irq.c -o CMakeFiles/kernel.dir/cpu/irq.c.s
+
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/flags.make
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.c
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: source/kernel/CMakeFiles/kernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/code/myos/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/code/myos/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object source/kernel/CMakeFiles/kernel.dir/init/init.c.obj"
 	cd E:/code/myos/start/build/source/kernel && E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT source/kernel/CMakeFiles/kernel.dir/init/init.c.obj -MF CMakeFiles/kernel.dir/init/init.c.obj.d -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/code/myos/start/source/kernel/init/init.c
 
 source/kernel/CMakeFiles/kernel.dir/init/init.c.i: cmake_force
@@ -117,6 +131,7 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.s: cmake_force
 kernel_OBJECTS = \
 "CMakeFiles/kernel.dir/init/start.S.obj" \
 "CMakeFiles/kernel.dir/cpu/cpu.c.obj" \
+"CMakeFiles/kernel.dir/cpu/irq.c.obj" \
 "CMakeFiles/kernel.dir/init/init.c.obj"
 
 # External object files for target kernel
@@ -124,9 +139,10 @@ kernel_EXTERNAL_OBJECTS =
 
 source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
 source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj
+source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj
 source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
 source/kernel/kernel: source/kernel/CMakeFiles/kernel.dir/build.make
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/code/myos/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable kernel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/code/myos/start/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable kernel"
 	cd E:/code/myos/start/build/source/kernel && x86_64-elf-ld $(kernel_OBJECTS) $(kernel_EXTERNAL_OBJECTS) -m elf_i386 -T E:/code/myos/start/source/kernel/kernel.lds -o E:/code/myos/start/build/source/kernel/kernel.elf
 	cd E:/code/myos/start/build/source/kernel && x86_64-elf-objcopy -S kernel.elf E:/code/myos/start/../image/kernel.elf
 	cd E:/code/myos/start/build/source/kernel && x86_64-elf-objdump -x -d -S -m i386 E:/code/myos/start/build/source/kernel/kernel.elf > kernel_dis.txt

@@ -36,6 +36,11 @@
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c E:/code/myos/start/source/kernel/cpu/irq.c",
+  "file": "E:/code/myos/start/source/kernel/cpu/irq.c"
+},
+{
+  "directory": "E:/code/myos/start/build/source/kernel",
   "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/code/myos/start/source/kernel/init/init.c",
   "file": "E:/code/myos/start/source/kernel/init/init.c"
 }
