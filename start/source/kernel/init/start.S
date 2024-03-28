@@ -49,3 +49,31 @@ gdt_reload:
 
     .bss
 .comm stack,KERNEL_STACK_SIZE  // BTD
+
+
+    .text
+    .extern do_handler_unknown
+    .global exception_handler_unknown
+
+
+exception_handler_unknown:
+
+    # 压栈
+    pusha
+    push %ds
+    push %es
+    push %fs
+    push %gs
+
+    call do_handler_unknown
+
+    # 出栈
+    pop %gs
+    pop %fs
+    pop %es
+    pop %ds
+    popa
+    iret
+
+
+    
