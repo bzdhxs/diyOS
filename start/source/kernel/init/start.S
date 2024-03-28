@@ -51,22 +51,28 @@ gdt_reload:
 .comm stack,KERNEL_STACK_SIZE  // BTD
 
 
+.macro exception_handler name num with_err_code
+
     .text
-    .extern do_handler_unknown
-    .global exception_handler_unknown
+    .extern do_handler_\name
+    .global exception_handler_\name
 
+exception_handler_\name:
 
-exception_handler_unknown:
+# 压入0表示没有错误码
+    .if \with_err_code == 0
+        push $0
+    .endif
 
     # 压栈
+    push $\num
     pusha
     push %ds
     push %es
     push %fs
     push %gs
-#   这里压入 压入%gs时esp的值
     push %esp
-    call do_handler_unknown
+    call do_handler_\name
 
     # 出栈
     add $(1*4),%esp
@@ -75,8 +81,16 @@ exception_handler_unknown:
     pop %es
     pop %ds
     popa
+# 指向EIP
+    add $(2*4),%esp
 
     iret
+
+.endm
+
+exception_handler unknown,-1,0
+exception_handler divider,0,0
+
 
 
     

@@ -20,6 +20,11 @@ void do_handler_unknown(exception_frame_t * frame){
 
 }
 
+void do_handler_divider(exception_frame_t * frame){
+    do_default_handler(frame,"Divder exception");
+}
+
+
 
 static gate_desc_t idt_table[IDE_TABLE_NR];
 
@@ -30,6 +35,22 @@ void irq_init(void){
         GATE_TYPE_IDT | GATE_P_PRESENT | GATE_DPL0);
     }
 
+    irq_install(IRQ0_DE,exception_handler_divider);
+    
     lidt((uint32_t)idt_table,sizeof(idt_table));
 }
+
+
+int irq_install(int irq_num,irq_handler_t handler){
+
+    if(irq_num >= IDE_TABLE_NR){
+        return -1;
+    }
+
+    gate_desc_set(idt_table+irq_num,KERNEL_SELECTOR_CS,
+    (uint32_t)handler,GATE_TYPE_IDT | GATE_P_PRESENT | GATE_DPL0);
+
+    return 0;
+}
+
 
