@@ -5,7 +5,7 @@
 #define CPU_H
 #include "comm/types.h"
 
-// 常用宏定义
+// GDT宏定义
 #define SEG_G				(1 << 15)		// 设置段界限的单位，1-4KB，0-字节
 #define SEG_D				(1 << 14)		// 控制是否是32位、16位的代码或数据段
 #define SEG_P_PRESENT	    (1 << 7)		// 段是否存在
@@ -23,7 +23,7 @@
 
 #pragma pack(1)
 
-//  GDT描述符
+//  GDT段描述符
 // 参考 INTEL325384 -- 3-10 Vol. 3A  --   Figure 3-8.  Segment Descripto
 typedef struct _segment_desc_t{
     uint16_t limit15_0;
@@ -33,10 +33,22 @@ typedef struct _segment_desc_t{
     uint8_t base31_24;
 }segment_desc_t;
 
+/*
+ * 调用门描述符
+ */
+typedef struct _gate_desc_t {
+	uint16_t offset15_0;
+	uint16_t selector;
+	uint16_t attr;
+	uint16_t offset31_16;
+}gate_desc_t;
+
 
 #pragma pack()
 
 void cpu_init (void);
 void segment_desc_set(int selector, uint32_t base, uint32_t limit, uint16_t attr);
+void gate_desc_set(gate_desc_t * desc, uint16_t selector, uint32_t offset, uint16_t attr);
+
 
 #endif

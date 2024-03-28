@@ -42,9 +42,10 @@ gdt_reload:
 	mov %ax, %fs
 	mov %ax, %gs
 
-    mov $(stack+KERNEL_STACK_SIZE) ,%esp
+
+    mov $(stack+KERNEL_STACK_SIZE) ,%esp  // BTD
     jmp init_main
 
 
     .bss
-.comm stack,KERNEL_STACK_SIZE
+.comm stack,KERNEL_STACK_SIZE  // BTD
