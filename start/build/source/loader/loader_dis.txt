@@ -114,10 +114,9 @@ protect_mode_entry:
 00008018 <inb>:
 #ifndef CPU_INSTR_H
 #define CPU_INSTR_H
-
 #include "types.h"
 
-static inline uint8_t inb(uint16_t port){
+static inline uint8_t inb(uint16_t port) {
     8018:	66 55                	push   %ebp
     801a:	66 89 e5             	mov    %esp,%ebp
     801d:	66 83 ec 14          	sub    $0x14,%esp
@@ -508,7 +507,7 @@ void loader_entry(void){
     832e:	eb fe                	jmp    832e <loader_entry+0x21>
 
 00008330 <inb>:
-static inline uint8_t inb(uint16_t port){
+static inline uint8_t inb(uint16_t port) {
     8330:	55                   	push   %bp
     8331:	89 e5                	mov    %sp,%bp
     8333:	83 ec 14             	sub    $0x14,%sp

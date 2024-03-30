@@ -31,9 +31,6 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -181,6 +178,30 @@ cpu/irq.c.s:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.s
 .PHONY : cpu/irq.c.s
 
+dev/time.obj: dev/time.c.obj
+.PHONY : dev/time.obj
+
+# target to build an object file
+dev/time.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj
+.PHONY : dev/time.c.obj
+
+dev/time.i: dev/time.c.i
+.PHONY : dev/time.i
+
+# target to preprocess a source file
+dev/time.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/dev/time.c.i
+.PHONY : dev/time.c.i
+
+dev/time.s: dev/time.c.s
+.PHONY : dev/time.s
+
+# target to generate assembly for a file
+dev/time.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/dev/time.c.s
+.PHONY : dev/time.c.s
+
 init/init.obj: init/init.c.obj
 .PHONY : init/init.obj
 
@@ -228,6 +249,9 @@ help:
 	@echo "... cpu/irq.obj"
 	@echo "... cpu/irq.i"
 	@echo "... cpu/irq.s"
+	@echo "... dev/time.obj"
+	@echo "... dev/time.i"
+	@echo "... dev/time.s"
 	@echo "... init/init.obj"
 	@echo "... init/init.i"
 	@echo "... init/init.s"

@@ -16,13 +16,22 @@ source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: ../source/kernel/cpu/irq.c \
   ../source/comm/types.h \
   ../source/kernel/include/os_cfg.h
 
+source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj: ../source/kernel/dev/time.c \
+  ../source/kernel/include/dev/time.h \
+  ../source/comm/types.h \
+  ../source/kernel/include/cpu/irq.h \
+  ../source/comm/cpu_instr.h \
+  ../source/comm/types.h \
+  ../source/kernel/include/os_cfg.h
+
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.c \
   ../source/comm/boot_info.h \
   ../source/comm/types.h \
   ../source/kernel/init/init.h \
   ../source/kernel/include/cpu/cpu.h \
   ../source/comm/types.h \
-  ../source/kernel/include/cpu/irq.h
+  ../source/kernel/include/cpu/irq.h \
+  ../source/kernel/include/dev/time.h
 
 
 ../source/kernel/cpu/irq.c:
@@ -37,9 +46,13 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
 
 ../source/comm/cpu_instr.h:
 
-../source/kernel/init/init.c:
-
 ../source/kernel/include/cpu/irq.h:
+
+../source/kernel/dev/time.c:
+
+../source/kernel/include/dev/time.h:
+
+../source/kernel/init/init.c:
 
 ../source/comm/boot_info.h:
 

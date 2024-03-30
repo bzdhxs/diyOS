@@ -18,6 +18,15 @@ source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj
  E:/code/myos/start/source/comm/types.h
  E:/code/myos/start/source/kernel/include/os_cfg.h
 
+source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj
+ E:/code/myos/start/source/kernel/dev/time.c
+ E:/code/myos/start/source/kernel/include/dev/time.h
+ E:/code/myos/start/source/comm/types.h
+ E:/code/myos/start/source/kernel/include/cpu/irq.h
+ E:/code/myos/start/source/comm/cpu_instr.h
+ E:/code/myos/start/source/comm/types.h
+ E:/code/myos/start/source/kernel/include/os_cfg.h
+
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
  E:/code/myos/start/source/kernel/init/init.c
  E:/code/myos/start/source/comm/boot_info.h
@@ -26,4 +35,5 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
  E:/code/myos/start/source/kernel/include/cpu/cpu.h
  E:/code/myos/start/source/comm/types.h
  E:/code/myos/start/source/kernel/include/cpu/irq.h
+ E:/code/myos/start/source/kernel/include/dev/time.h
 

@@ -1,9 +1,8 @@
 #ifndef CPU_INSTR_H
 #define CPU_INSTR_H
-
 #include "types.h"
 
-static inline uint8_t inb(uint16_t port){
+static inline uint8_t inb(uint16_t port) {
     // inb al,dx  从I/O端口dx 读取一个字节
     uint8_t rv; 
     __asm__ __volatile__("inb %[p],%[v]":[v]"=a"(rv):[p]"d"(port));

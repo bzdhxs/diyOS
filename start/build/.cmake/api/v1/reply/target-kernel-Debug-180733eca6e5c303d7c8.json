@@ -89,7 +89,8 @@
 			[
 				1,
 				2,
-				6
+				3,
+				8
 			]
 		}
 	],
@@ -131,17 +132,19 @@
 			[
 				1,
 				2,
-				6
+				3,
+				8
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3,
 				4,
 				5,
-				7
+				6,
+				7,
+				9
 			]
 		}
 	],
@@ -167,12 +170,23 @@
 		},
 		{
 			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "source/kernel/dev/time.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"path" : "source/kernel/include/cpu/cpu.h",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 1,
 			"path" : "source/kernel/include/cpu/irq.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "source/kernel/include/dev/time.h",
 			"sourceGroupIndex" : 2
 		},
 		{
