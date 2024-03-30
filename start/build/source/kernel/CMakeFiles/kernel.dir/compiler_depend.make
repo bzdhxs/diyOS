@@ -35,13 +35,23 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
   ../source/kernel/include/tools/log.h \
   ../source/kernel/include/os_cfg.h
 
+source/kernel/CMakeFiles/kernel.dir/tools/klib.c.obj: ../source/kernel/tools/klib.c \
+  ../source/comm/types.h \
+  ../source/kernel/include/tools/klib.h \
+  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h
+
 source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.c \
   ../source/kernel/include/tools/log.h \
   ../source/comm/cpu_instr.h \
-  ../source/comm/types.h
+  ../source/comm/types.h \
+  ../source/kernel/include/tools/klib.h \
+  ../source/comm/types.h \
+  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h
 
 
 ../source/kernel/cpu/irq.c:
+
+E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 
 ../source/kernel/include/os_cfg.h:
 
@@ -66,5 +76,9 @@ source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.
 ../source/kernel/init/init.h:
 
 ../source/kernel/include/tools/log.h:
+
+../source/kernel/tools/klib.c:
+
+../source/kernel/include/tools/klib.h:
 
 ../source/kernel/tools/log.c:

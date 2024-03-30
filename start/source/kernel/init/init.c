@@ -23,7 +23,7 @@ void init_main(void) {
 
     // int a = 3 / 0;
     log_printf("kernel is running....");
-    log_printf("version: %s",OS_VERSION);
+    log_printf("version: %s %s",OS_VERSION,"diyx86os");
 
     irq_enable_global();
     for(;;){}

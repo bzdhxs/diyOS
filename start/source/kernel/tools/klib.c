@@ -1,5 +1,10 @@
+/**
+ * 一些字符串的处理函数
+ **/
+
 #include "comm/types.h"
 #include "tools/klib.h"
+
 void kernel_strcpy(char * dest,const char *src) {
     if (!dest || !src){
         return;
@@ -10,7 +15,7 @@ void kernel_strcpy(char * dest,const char *src) {
 
     *dest = '\0';
 }
-void kernel_strcpy(char * dest,const char *src,int size) {
+void kernel_strncpy(char * dest,const char *src,int size) {
         if (!dest || !src || !size){
         return;
     }
@@ -37,7 +42,6 @@ int kernel_strncmp(const char * s1,const char * s2,int size){
     }    
     return !((*s1 == '\0') || (*s2 == '\0') || (*s1 == *s2));
 }
-
 int kernel_strlen(const char * str){
     if (!str){
         return 0;
@@ -50,8 +54,6 @@ int kernel_strlen(const char * str){
     }
     return len;
 }
-
-
 void kernel_memcpy(void * dest,void *src,int size){
     if (!dest || !src || !size) {
         return;
@@ -86,4 +88,42 @@ int kernel_memcmp(void * d1,void *d2,int size){
         }
     }
     return 0;
+}
+
+
+
+
+/**
+ * 格式化字符串
+ */
+// "version: %s","1.0.0"
+void kernel_vsprintf(char * buf,const char * fmt,va_list args) {
+    // 状态机
+    enum{NORMAL,READ_FMT} state = NORMAL;
+
+    
+    char * curr = buf;
+    char ch;
+    while ((ch = *fmt++)) {
+        switch(state) {
+            case NORMAL:
+                if(ch == '%') {
+                    state = READ_FMT;
+                }else{
+                    *curr++ = ch;
+                }
+                break;
+
+            case READ_FMT:
+                if (ch == 's') {
+                    const char * str = va_arg(args,char *); // 反复调用va_arg 取变量
+                    int len = kernel_strlen(str);
+                    while(len--) {
+                        *curr++ = *str++;
+                    }
+                }
+                state = NORMAL;
+                break;
+        }
+    }
 }

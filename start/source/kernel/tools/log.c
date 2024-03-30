@@ -1,6 +1,7 @@
 #include "tools/log.h"
 #include "comm/cpu_instr.h"
-
+#include "tools/klib.h"
+#include "stdarg.h" // 取可变参数的值
 
 #define COM1_PORT 0x3f8
 
@@ -16,10 +17,20 @@ void log_init(void) {
     outb(COM1_PORT + 4, 0x0f);
 
 }
+// 支持可变参数
+void log_printf(const char * fmt, ...) {
 
-void log_printf(const char * fmt,...) {
+// 缓冲区
+    char str_buf[128];
+    kernel_memset(str_buf,'\0',sizeof(str_buf));
 
-    const char * p = fmt;
+    va_list args;
+    va_start(args,fmt);
+
+    kernel_vsprintf(str_buf,fmt,args);
+    va_end(args);
+
+    const char * p = str_buf;
     while(*p != '\0') {
         while (inb(COM1_PORT + 5) & (1 << 6) == 0);
         outb(COM1_PORT,*p++);
