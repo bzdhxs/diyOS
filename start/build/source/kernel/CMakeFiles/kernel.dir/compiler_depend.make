@@ -36,7 +36,9 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
   ../source/kernel/include/os_cfg.h
 
 source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.c \
-  ../source/kernel/include/tools/log.h
+  ../source/kernel/include/tools/log.h \
+  ../source/comm/cpu_instr.h \
+  ../source/comm/types.h
 
 
 ../source/kernel/cpu/irq.c:
