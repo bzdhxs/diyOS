@@ -146,7 +146,7 @@ void irq_init(void){
 	irq_install(IRQ20_VE, exception_handler_virtual_exception);
     
     lidt((uint32_t)idt_table,sizeof(idt_table));
-    
+
 //初始化中断控制器
     init_pic();
 }
@@ -162,6 +162,48 @@ int irq_install(int irq_num,irq_handler_t handler){
     (uint32_t)handler,GATE_TYPE_IDT | GATE_P_PRESENT | GATE_DPL0);
 
     return 0;
+}
+
+// 设置 8259 的 IMR寄存器
+void irq_enable (int irq_num) {
+    if (irq_num < IRQ_PIC_START) {
+        return;
+    }
+
+    irq_num -= IRQ_PIC_START;
+    if (irq_num < 8) {
+        uint8_t mask = inb(PIC0_IMR) & ~(1 << irq_num);
+        outb(PIC0_IMR,mask);
+    }else{
+        uint8_t mask = inb(PIC1_IMR) & ~(1 << irq_num);
+        outb(PIC1_IMR,mask);
+    }
+}
+void irq_disable (int irq_num) {
+    
+    if (irq_num < IRQ_PIC_START) {
+        return;
+    }
+
+    irq_num -= IRQ_PIC_START;
+    if (irq_num < 8) {
+        uint8_t mask = inb(PIC0_IMR) | (1 << irq_num);
+        outb(PIC0_IMR,mask);
+    }else{
+        uint8_t mask = inb(PIC1_IMR) | (1 << irq_num);
+        outb(PIC1_IMR,mask);
+    }
+}
+
+
+// 将eflags中的IF位设置为0
+void irq_disable_global (void) {
+    cli();
+}
+
+// 将eflags中的IF位设置为0
+void irq_enable_global (void) {
+    sti();
 }
 
 

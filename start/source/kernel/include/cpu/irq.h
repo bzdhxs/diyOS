@@ -73,6 +73,10 @@ void exception_handler_machine_check (void);
 void exception_handler_smd_exception (void);
 void exception_handler_virtual_exception (void);
 
+void irq_disable (int irq_num);
+void irq_enable (int irq_num);
+void irq_ensable_global (void);
+void irq_disable_global (void);
 
 // PIC控制器相关的寄存器及位配置
 #define PIC0_ICW1			0x20
