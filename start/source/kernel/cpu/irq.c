@@ -120,6 +120,7 @@ static void init_pic(void) {
 
 
 void irq_init(void){ 
+
     for(int i = 0;i < IDE_TABLE_NR; i++){
         gate_desc_set(idt_table + i, KERNEL_SELECTOR_CS, (uint32_t)exception_handler_unknown, 
         GATE_TYPE_IDT | GATE_P_PRESENT | GATE_DPL0);
@@ -175,6 +176,7 @@ void irq_enable (int irq_num) {
         uint8_t mask = inb(PIC0_IMR) & ~(1 << irq_num);
         outb(PIC0_IMR,mask);
     }else{
+        irq_num -= 8;
         uint8_t mask = inb(PIC1_IMR) & ~(1 << irq_num);
         outb(PIC1_IMR,mask);
     }
@@ -190,6 +192,7 @@ void irq_disable (int irq_num) {
         uint8_t mask = inb(PIC0_IMR) | (1 << irq_num);
         outb(PIC0_IMR,mask);
     }else{
+        irq_num -= 8;
         uint8_t mask = inb(PIC1_IMR) | (1 << irq_num);
         outb(PIC1_IMR,mask);
     }
@@ -207,7 +210,9 @@ void irq_enable_global (void) {
 }
 
 void pic_send_eoi(int irq_num) {
+    
     irq_num -= IRQ_PIC_START;
+
     if(irq_num >= 8){
         outb(PIC1_OCW2,PIC_OCW2_EOI);
 

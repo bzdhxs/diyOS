@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/code/myos/start/source/kernel/cpu/irq.c" "source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj.d"
   "E:/code/myos/start/source/kernel/dev/time.c" "source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj.d"
   "E:/code/myos/start/source/kernel/init/init.c" "source/kernel/CMakeFiles/kernel.dir/init/init.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/init/init.c.obj.d"
+  "E:/code/myos/start/source/kernel/tools/log.c" "source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj.d"
   )
 
 # Targets to which this target links.

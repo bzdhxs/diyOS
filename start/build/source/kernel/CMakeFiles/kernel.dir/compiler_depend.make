@@ -31,7 +31,12 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
   ../source/kernel/include/cpu/cpu.h \
   ../source/comm/types.h \
   ../source/kernel/include/cpu/irq.h \
-  ../source/kernel/include/dev/time.h
+  ../source/kernel/include/dev/time.h \
+  ../source/kernel/include/tools/log.h \
+  ../source/kernel/include/os_cfg.h
+
+source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.c \
+  ../source/kernel/include/tools/log.h
 
 
 ../source/kernel/cpu/irq.c:
@@ -57,3 +62,7 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
 ../source/comm/boot_info.h:
 
 ../source/kernel/init/init.h:
+
+../source/kernel/include/tools/log.h:
+
+../source/kernel/tools/log.c:

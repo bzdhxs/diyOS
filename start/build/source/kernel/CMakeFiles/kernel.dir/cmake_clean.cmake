@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kernel.dir/init/init.c.obj"
   "CMakeFiles/kernel.dir/init/init.c.obj.d"
   "CMakeFiles/kernel.dir/init/start.S.obj"
+  "CMakeFiles/kernel.dir/tools/log.c.obj"
+  "CMakeFiles/kernel.dir/tools/log.c.obj.d"
   "kernel"
   "kernel.manifest"
   "kernel.pdb"

@@ -31,6 +31,9 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -234,6 +237,30 @@ init/start.S.obj:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
 .PHONY : init/start.S.obj
 
+tools/log.obj: tools/log.c.obj
+.PHONY : tools/log.obj
+
+# target to build an object file
+tools/log.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj
+.PHONY : tools/log.c.obj
+
+tools/log.i: tools/log.c.i
+.PHONY : tools/log.i
+
+# target to preprocess a source file
+tools/log.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/log.c.i
+.PHONY : tools/log.c.i
+
+tools/log.s: tools/log.c.s
+.PHONY : tools/log.s
+
+# target to generate assembly for a file
+tools/log.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/log.c.s
+.PHONY : tools/log.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -256,6 +283,9 @@ help:
 	@echo "... init/init.i"
 	@echo "... init/init.s"
 	@echo "... init/start.obj"
+	@echo "... tools/log.obj"
+	@echo "... tools/log.i"
+	@echo "... tools/log.s"
 .PHONY : help
 
 

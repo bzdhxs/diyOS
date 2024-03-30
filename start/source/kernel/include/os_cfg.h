@@ -13,5 +13,7 @@
 
 
 #define OS_TICK_MS 10
+#define OS_VERSION "1.0.0"
+
 
 #endif
