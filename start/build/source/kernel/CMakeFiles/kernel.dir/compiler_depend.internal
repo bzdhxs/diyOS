@@ -17,6 +17,7 @@ source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj
  E:/code/myos/start/source/comm/cpu_instr.h
  E:/code/myos/start/source/comm/types.h
  E:/code/myos/start/source/kernel/include/os_cfg.h
+ E:/code/myos/start/source/kernel/include/tools/log.h
 
 source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj
  E:/code/myos/start/source/kernel/dev/time.c

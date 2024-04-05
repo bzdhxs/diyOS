@@ -21,12 +21,12 @@ void kernel_init (boot_info_t * boot_info){
 
 void init_main(void) {
 
-    // int a = 3 / 0;
+    int a = 3 / 0;
+
     log_printf("kernel is running....");
     log_printf("version: %s %s",OS_VERSION,"diyx86os");
     log_printf("%d %d %x %c",123456,-123,0x12345,'a');
-
-
     irq_enable_global();
+    
     for(;;){}
 }

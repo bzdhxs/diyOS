@@ -261,7 +261,7 @@ static inline void far_jump(uint32_t selector,uint32_t offset){
 
 #include "loader.h"
 
-boot_info_t boot_info;			// 启动参数信息  用来存放检测出的内存信息
+boot_info_t boot_info;		// 启动参数信息  用来存放检测出的内存信息
 
 static void show_msg(const char *msg){
     8107:	66 55                	push   %ebp
@@ -308,7 +308,6 @@ static void detect_memory(void){
     8149:	66 56                	push   %esi
     814b:	66 53                	push   %ebx
     814d:	66 83 ec 30          	sub    $0x30,%esp
-
 
     uint32_t contID = 0;
     8151:	67 66 c7 45 f0 00 00 	movl   $0x0,-0x10(%ebp)

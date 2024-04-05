@@ -40,5 +40,4 @@ void log_printf(const char * fmt, ...) {
     outb(COM1_PORT,'\r');
 // 变行    
     outb(COM1_PORT,'\n');
-
 }
