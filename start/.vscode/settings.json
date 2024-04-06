@@ -16,7 +16,8 @@
         "cpu.h": "c",
         "os_cfg.h": "c",
         "irq.h": "c",
-        "klib.h": "c"
+        "klib.h": "c",
+        "log.h": "c"
     },
     "editor.tokenColorCustomizations": {
         "comments": "#41dd22"

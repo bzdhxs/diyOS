@@ -6,7 +6,7 @@
 },
 {
   "directory": "E:/code/myos/start/build/source/boot",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/boot.dir/boot.c.obj -c E:/code/myos/start/source/boot/boot.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/boot.dir/boot.c.obj -c E:/code/myos/start/source/boot/boot.c",
   "file": "E:/code/myos/start/source/boot/boot.c"
 },
 {
@@ -16,12 +16,12 @@
 },
 {
   "directory": "E:/code/myos/start/build/source/loader",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_16.c.obj -c E:/code/myos/start/source/loader/loader_16.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_16.c.obj -c E:/code/myos/start/source/loader/loader_16.c",
   "file": "E:/code/myos/start/source/loader/loader_16.c"
 },
 {
   "directory": "E:/code/myos/start/build/source/loader",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_32.c.obj -c E:/code/myos/start/source/loader/loader_32.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/loader.dir/loader_32.c.obj -c E:/code/myos/start/source/loader/loader_32.c",
   "file": "E:/code/myos/start/source/loader/loader_32.c"
 },
 {
@@ -31,32 +31,32 @@
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/cpu.c.obj -c E:/code/myos/start/source/kernel/cpu/cpu.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/cpu.c.obj -c E:/code/myos/start/source/kernel/cpu/cpu.c",
   "file": "E:/code/myos/start/source/kernel/cpu/cpu.c"
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c E:/code/myos/start/source/kernel/cpu/irq.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/cpu/irq.c.obj -c E:/code/myos/start/source/kernel/cpu/irq.c",
   "file": "E:/code/myos/start/source/kernel/cpu/irq.c"
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/dev/time.c.obj -c E:/code/myos/start/source/kernel/dev/time.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/dev/time.c.obj -c E:/code/myos/start/source/kernel/dev/time.c",
   "file": "E:/code/myos/start/source/kernel/dev/time.c"
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/code/myos/start/source/kernel/init/init.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/init/init.c.obj -c E:/code/myos/start/source/kernel/init/init.c",
   "file": "E:/code/myos/start/source/kernel/init/init.c"
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/klib.c.obj -c E:/code/myos/start/source/kernel/tools/klib.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/klib.c.obj -c E:/code/myos/start/source/kernel/tools/klib.c",
   "file": "E:/code/myos/start/source/kernel/tools/klib.c"
 },
 {
   "directory": "E:/code/myos/start/build/source/kernel",
-  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32 -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/log.c.obj -c E:/code/myos/start/source/kernel/tools/log.c",
+  "command": "E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe  -IE:/code/myos/start/source -IE:/code/myos/start/source/kernel/include -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables -g -o CMakeFiles/kernel.dir/tools/log.c.obj -c E:/code/myos/start/source/kernel/tools/log.c",
   "file": "E:/code/myos/start/source/kernel/tools/log.c"
 }
 ]

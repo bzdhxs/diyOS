@@ -50,6 +50,20 @@ typedef struct _gate_desc_t {
 	uint16_t offset31_16;
 }gate_desc_t;
 
+
+/**
+ * tss描述符
+ */
+typedef struct _tss_t {
+    uint32_t pre_link;  //  Contains the segment selector for the TSS of the previous task
+    uint32_t esp0, ss0, esp1, ss1, esp2, ss2; // Privilege level-0, -1, and -2 stack pointer fields
+    uint32_t cr3; //  Contains the base physical address of the page directory to be used by the task
+    uint32_t eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;  //  General-purpose register fields
+    uint32_t es, cs, ss, ds, fs, gs; //  Segment selector fields 
+    uint32_t ldt;
+    uint32_t iomap; //  I/O Map Base Address
+}tss_t;
+
 #pragma pack()
 
 void cpu_init (void);
