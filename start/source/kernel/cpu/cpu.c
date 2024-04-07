@@ -45,23 +45,30 @@ void init_gdt(void){
 /**
  * 设置门描述符
  */
-
-
 void gate_desc_set(gate_desc_t * desc, uint16_t selector, uint32_t offset, uint16_t attr) {
 
 	desc->offset15_0 = offset & 0xffff;
-	
     desc->selector = selector;
-	
     desc->attr = attr;
-	
     desc->offset31_16 = (offset >> 16) & 0xffff;
 }
-
-
-
 
 void cpu_init (void){
     // 初始化GDT表
     init_gdt();
+}
+
+int gdt_alloc_desc(){
+    for (int i = 1;i <GDT_TABLE_SIZE;i++) {
+
+        segment_desc_t * desc = gdt_table + i;
+        if(desc->attr == 0) {
+            return i * sizeof(segment_desc_t);
+        }
+    }
+    return -1;
+}
+
+void switch_to_tss(int tss_sel) {
+    far_jump(tss_sel,0);
 }
