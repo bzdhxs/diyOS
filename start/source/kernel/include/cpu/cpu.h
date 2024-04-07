@@ -5,6 +5,9 @@
 #define CPU_H
 #include "comm/types.h"
 
+#define EFLAGS_DEFAULT      (1 << 1)
+#define EFLAGS_IF           (1 << 9)
+
 // GDT宏定义
 #define SEG_G				(1 << 15)		// 设置段界限的单位，1-4KB，0-字节
 #define SEG_D				(1 << 14)		// 控制是否是32位、16位的代码或数据段
