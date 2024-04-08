@@ -100,6 +100,23 @@ void list_insert_first(list_t *list, list_node_t *node);
  * @param node 插入节点
  */
 void list_insert_last(list_t *list, list_node_t *node);
+/**
+ * @brief 头删
+ * 
+ * @param list 删除的链表
+ * @return list_node_t* 删除的节点
+ */
+list_node_t* list_remove_first(list_t *list);
+
+/**
+ * @brief 删除指定节点
+ * 
+ * @param list 链表
+ * @param node 待删除节点
+ * @return list_node_t* 
+ */
+list_node_t* list_remove(list_t *list, list_node_t *node);
+
 
 
 #endif/* LIST_H */
