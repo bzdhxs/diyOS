@@ -39,15 +39,13 @@ void init_task_entry(void) {
 
 }
 
-
-
 void init_main(void) {
 
     log_printf("kernel is running....");
     log_printf("version: %s %s",OS_VERSION,"diyx86os");
     log_printf("%d %d %x %c",123456,-123,0x12345,'a');
 
-    task_init(&init_task, (uint32_t)init_task_entry,(uint32_t)&init_task_stack[1024]);
+    task_init(&init_task,"init task",(uint32_t)init_task_entry,(uint32_t)&init_task_stack[1024]);
     task_first_init();
 
     int count = 0;
@@ -55,4 +53,6 @@ void init_main(void) {
         log_printf("int main: %d",count++);
         task_switch_from_to(task_first_task(),&init_task);
     }
+
+
 }
