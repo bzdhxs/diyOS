@@ -91,9 +91,10 @@
 				2,
 				3,
 				4,
-				12,
-				14,
-				15
+				13,
+				15,
+				16,
+				17
 			]
 		}
 	],
@@ -137,9 +138,10 @@
 				2,
 				3,
 				4,
-				12,
-				14,
-				15
+				13,
+				15,
+				16,
+				17
 			]
 		},
 		{
@@ -153,7 +155,8 @@
 				9,
 				10,
 				11,
-				13
+				12,
+				14
 			]
 		}
 	],
@@ -221,6 +224,11 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "source/kernel/include/tools/list.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
 			"path" : "source/kernel/include/tools/log.h",
 			"sourceGroupIndex" : 2
 		},
@@ -239,6 +247,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "source/kernel/tools/klib.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "source/kernel/tools/list.c",
 			"sourceGroupIndex" : 1
 		},
 		{

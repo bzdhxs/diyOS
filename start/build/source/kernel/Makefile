@@ -285,6 +285,30 @@ tools/klib.c.s:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/klib.c.s
 .PHONY : tools/klib.c.s
 
+tools/list.obj: tools/list.c.obj
+.PHONY : tools/list.obj
+
+# target to build an object file
+tools/list.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/list.c.obj
+.PHONY : tools/list.c.obj
+
+tools/list.i: tools/list.c.i
+.PHONY : tools/list.i
+
+# target to preprocess a source file
+tools/list.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/list.c.i
+.PHONY : tools/list.c.i
+
+tools/list.s: tools/list.c.s
+.PHONY : tools/list.s
+
+# target to generate assembly for a file
+tools/list.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/list.c.s
+.PHONY : tools/list.c.s
+
 tools/log.obj: tools/log.c.obj
 .PHONY : tools/log.obj
 
@@ -337,6 +361,9 @@ help:
 	@echo "... tools/klib.obj"
 	@echo "... tools/klib.i"
 	@echo "... tools/klib.s"
+	@echo "... tools/list.obj"
+	@echo "... tools/list.i"
+	@echo "... tools/list.s"
 	@echo "... tools/log.obj"
 	@echo "... tools/log.i"
 	@echo "... tools/log.s"

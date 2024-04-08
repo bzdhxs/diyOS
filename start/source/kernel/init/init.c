@@ -11,6 +11,7 @@
 #include "os_cfg.h"
 #include "tools/klib.h"
 #include "core/task.h" 
+#include "tools/list.h"
 
 /**
  * 内核入口
@@ -37,8 +38,38 @@ void init_task_entry(void) {
 
 }
 
+void list_test (void) {
+    list_t list;
+
+    list_node_t nodes[5];
+    list_init(&list);
+
+
+
+    for(int i = 0; i < 5; i++) {
+        list_node_t * node = nodes + i;
+        log_printf("insert first to last: %d,0x%x",i,(uint32_t)node);
+        list_insert_first(&list,node);
+    }
+    log_printf("list: firts=0x%x,last=0x%x,count=%d",
+    list_first(&list),list_last(&list),list_count(&list));
+
+    list_init(&list);
+
+    for(int i = 0; i < 5; i++) {
+        list_node_t * node = nodes + i;
+        log_printf("insert first to last: %d,0x%x",i,(uint32_t)node);
+        list_insert_last(&list,node);
+    }
+    log_printf("list: firts=0x%x,last=0x%x,count=%d",
+    list_first(&list),list_last(&list),list_count(&list));
+    
+}
+
+
 void init_main(void) {
 
+    list_test();
     log_printf("kernel is running....");
     log_printf("version: %s %s",OS_VERSION,"diyx86os");
     log_printf("%d %d %x %c",123456,-123,0x12345,'a');
