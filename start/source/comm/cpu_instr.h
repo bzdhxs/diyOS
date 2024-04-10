@@ -80,6 +80,10 @@ static inline void lidt(uint32_t start,uint32_t size){
     __asm__ __volatile__("lidt %[g]"::[g]"m"(idt));
 }
 
+/**
+ * @brief 当处理器执行到HLT指令时，它会停止执行并进入一个低功耗状态，直到外部事件唤醒处理器继续执行。
+ * 
+ */
 static inline void hlt (void) {
     __asm__ __volatile__("hlt");
 }

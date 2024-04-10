@@ -81,25 +81,48 @@ task_t * task_first_task (void) {
     return &task_manager.first_task;
 }
 
+static void idle_task_entry (void) {
+    for(;;) {
+        hlt();
+    }
+}
+static uint32_t idle_task_stack[IDLE_TASK_SIZE];
+
 void task_manager_init (void) {
     list_init(&task_manager.ready_list);
     list_init(&task_manager.task_list);
     list_init(&task_manager.sleep_list);
     task_manager.curr_task = (task_t *)0;
+
+    task_init(&task_manager.idle_task,
+        "idle_task",
+        (uint32_t)idle_task_entry,
+        (uint32_t)(idle_task_stack + IDLE_TASK_SIZE)
+    );
+
+
 }
 
 void task_set_ready(task_t * task) {
+    if (task == &task_manager.idle_task) {
+        return;
+    }
     list_insert_last(&task_manager.ready_list,&task->run_node);
     task->state = TASK_READY;
 }
 
 void task_set_block(task_t * task) {
+    if (task == &task_manager.idle_task) {
+        return;
+    }
     list_remove(&task_manager.ready_list,&task->run_node);
-
 }
 
 
 task_t * task_next_run(void) {
+    if (list_count(&task_manager.ready_list) == 0) {
+        return &task_manager.idle_task;
+    }
     list_node_t * task_node = list_first(&task_manager.ready_list);
     return list_node_parent(task_node,task_t,run_node);
 }
@@ -121,6 +144,8 @@ void task_dispatch(void) {
         to->state = TASK_RUNNING;
         task_switch_from_to(from,to);
     }
+
+
     irq_leave_protection(state);
 
 }
@@ -153,6 +178,7 @@ void task_time_tick(void) {
 
         task_dispatch();
     }
+
     list_node_t * curr = list_first(&task_manager.sleep_list);
 
     while (curr) {
@@ -168,6 +194,9 @@ void task_time_tick(void) {
 
     task_dispatch();
 }
+
+
+
 
 void task_set_sleep (task_t * task, uint32_t ticks) {
     if (ticks == 0) {

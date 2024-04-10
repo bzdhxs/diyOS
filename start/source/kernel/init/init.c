@@ -33,9 +33,8 @@ void init_task_entry(void) {
     
     int count = 0;
     for(;;){
-        //log_printf("int task: %d",count++);
-        // task_switch_from_to(&init_task,task_first_task());
-        // sys_sched_yield();
+        log_printf("int task: %d",count++);
+        sys_sleep(5000);
     }    
 
 }
@@ -54,8 +53,6 @@ void init_main(void) {
     for(;;){
         log_printf("first main: %d",count++);
         sys_sleep(1000);
-        // task_switch_from_to(task_first_task(),&init_task);
-        // sys_sched_yield();
 
     }
 
