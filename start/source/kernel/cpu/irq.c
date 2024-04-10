@@ -244,3 +244,22 @@ void pic_send_eoi(int irq_num) {
 
 }
 
+
+/**
+ * @brief 进入临界区
+ * 
+ * @return irq_state_t 
+ */
+irq_state_t irq_enter_protection (void) {
+    irq_state_t state = read_eflags();
+    irq_disable_global();
+    return state;
+}
+/**
+ * @brief 退出临界区
+ * 
+ * @param state eflags寄存器的值
+ */
+void irq_leave_protection (irq_state_t state) {
+    write_eflags(state);
+}

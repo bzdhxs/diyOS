@@ -74,7 +74,8 @@ source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.
   ../source/comm/types.h \
   ../source/kernel/include/tools/klib.h \
   ../source/comm/types.h \
-  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h
+  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h \
+  ../source/kernel/include/cpu/irq.h
 
 
 ../source/kernel/init/init.c:

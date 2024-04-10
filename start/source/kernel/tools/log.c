@@ -2,7 +2,7 @@
 #include "comm/cpu_instr.h"
 #include "tools/klib.h"
 #include "stdarg.h" // 取可变参数的值
-
+#include "cpu/irq.h"
 #define COM1_PORT 0x3f8
 
 void log_init(void) {
@@ -26,18 +26,24 @@ void log_printf(const char * fmt, ...) {
 
     va_list args;
     va_start(args,fmt);
-
     kernel_vsprintf(str_buf,fmt,args);
     va_end(args);
+
+    irq_state_t state = irq_enter_protection();
 
     const char * p = str_buf;
     while(*p != '\0') {
         while (inb(COM1_PORT + 5) & (1 << 6) == 0);
         outb(COM1_PORT,*p++);
     }
-
 // 变列
     outb(COM1_PORT,'\r');
 // 变行    
     outb(COM1_PORT,'\n');
+
+    irq_leave_protection(state);
 }
+
+
+
+
