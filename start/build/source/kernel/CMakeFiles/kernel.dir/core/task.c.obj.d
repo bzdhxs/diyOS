@@ -9,4 +9,5 @@ source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: \
  E:/code/myos/start/source/kernel/include/os_cfg.h \
  E:/code/myos/start/source/kernel/include/tools/log.h \
  E:/code/myos/start/source/comm/cpu_instr.h \
- E:/code/myos/start/source/comm/types.h
+ E:/code/myos/start/source/comm/types.h \
+ E:/code/myos/start/source/kernel/include/cpu/irq.h

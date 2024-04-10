@@ -4,4 +4,5 @@ source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj: \
  E:/code/myos/start/source/comm/types.h \
  E:/code/myos/start/source/kernel/include/os_cfg.h \
  E:/code/myos/start/source/comm/cpu_instr.h \
- E:/code/myos/start/source/comm/types.h
+ E:/code/myos/start/source/comm/types.h \
+ E:/code/myos/start/source/kernel/include/cpu/irq.h

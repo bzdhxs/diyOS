@@ -11,14 +11,16 @@ source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: ../source/kernel/core/task.
   ../source/kernel/include/os_cfg.h \
   ../source/kernel/include/tools/log.h \
   ../source/comm/cpu_instr.h \
-  ../source/comm/types.h
+  ../source/comm/types.h \
+  ../source/kernel/include/cpu/irq.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj: ../source/kernel/cpu/cpu.c \
   ../source/kernel/include/cpu/cpu.h \
   ../source/comm/types.h \
   ../source/kernel/include/os_cfg.h \
   ../source/comm/cpu_instr.h \
-  ../source/comm/types.h
+  ../source/comm/types.h \
+  ../source/kernel/include/cpu/irq.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: ../source/kernel/cpu/irq.c \
   ../source/kernel/include/cpu/irq.h \
@@ -102,13 +104,13 @@ E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 
 ../source/comm/cpu_instr.h:
 
-../source/kernel/cpu/cpu.c:
-
-../source/kernel/cpu/irq.c:
-
 ../source/kernel/dev/time.c:
 
 ../source/kernel/include/cpu/irq.h:
+
+../source/kernel/cpu/cpu.c:
+
+../source/kernel/cpu/irq.c:
 
 ../source/kernel/include/dev/time.h:
 

@@ -19,6 +19,7 @@ typedef struct _task_t {
         TASK_WAITTING,
     }state;
 
+    int sleep_ticks;
     int time_ticks;
     int slice_ticks;
 
@@ -40,6 +41,7 @@ typedef struct _task_manager_t {
     task_t * curr_task;
     list_t ready_list;
     list_t task_list;
+    list_t sleep_list;
 
     task_t first_task;
 
@@ -53,5 +55,24 @@ void task_set_ready(task_t * task);
 void task_set_block(task_t * task);
 int sys_sched_yield(void);
 
+/**
+ * @brief 建立任务睡眠
+ * 
+ * @param task 任务
+ * @param ticks 睡眠时间
+ */
+void task_set_sleep (task_t * task, uint32_t ticks);
+/**
+ * @brief 撤销任务睡眠
+ * 
+ * @param task 任务
+ */
+void task_set_wakeup (task_t * task);
+/**
+ * @brief 系统调用——任务睡眠
+ * 
+ * @param ms 
+ */
+void sys_sleep (uint32_t ms);
 
 #endif
