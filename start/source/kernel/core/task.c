@@ -57,23 +57,14 @@ int task_init (task_t * task,const char * name, uint32_t entry, uint32_t esp){
 
 
     kernel_strncpy(task->name,name,TASK_NAME_SIZE);
-    task->state = TASK_READY;
+    task->state = TASK_CREATED;
+    task->time_ticks = TASK_TIME_SLICE_DEFAULT;
+    task->slice_ticks = task->time_ticks;
     list_node_init(&task->all_node);
     list_node_init(&task->run_node);
-
     task_set_ready(task);
     list_insert_last(&task_manager.task_list,&task->all_node);
-    // uint32_t *pesp = (uint32_t *)esp;
 
-    // if (pesp) {
-    //     *(--pesp) = entry;
-    //     *(--pesp) = 0;
-    //     *(--pesp) = 0;
-    //     *(--pesp) = 0;
-    //     *(--pesp) = 0;
-    //     task->stack = pesp;
-    // }
-    // return 0;
 }
 
 void task_first_init (void) {
@@ -123,6 +114,7 @@ void task_dispatch(void) {
     }
 }
 int sys_sched_yield(void) {
+    
     if (list_count(&task_manager.ready_list) > 1) {
         task_t * curr_task = task_current();
 
@@ -135,6 +127,18 @@ int sys_sched_yield(void) {
     return 0;
 }
 
+void task_time_tick(void) {
+    
+    task_t * curr_task = task_current();
+    if (--curr_task->slice_ticks == 0) {
+        
+        curr_task->slice_ticks = curr_task->time_ticks;
+        task_set_block(curr_task);
+        task_set_ready(curr_task);      
 
+        task_dispatch();
+
+    }
+}
 
 

@@ -35,7 +35,10 @@ source/kernel/CMakeFiles/kernel.dir/dev/time.c.obj: ../source/kernel/dev/time.c 
   ../source/kernel/include/cpu/irq.h \
   ../source/comm/cpu_instr.h \
   ../source/comm/types.h \
-  ../source/kernel/include/os_cfg.h
+  ../source/kernel/include/os_cfg.h \
+  ../source/kernel/include/core/task.h \
+  ../source/kernel/include/cpu/cpu.h \
+  ../source/kernel/include/tools/list.h
 
 source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.c \
   ../source/comm/boot_info.h \
