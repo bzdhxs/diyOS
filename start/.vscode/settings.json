@@ -18,7 +18,8 @@
       "irq.h": "c",
       "klib.h": "c",
       "log.h": "c",
-      "list.h": "c"
+      "list.h": "c",
+      "mutex.h": "c"
     },
     "editor.tokenColorCustomizations": {
         "comments": "#41dd22"
