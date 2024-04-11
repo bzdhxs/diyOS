@@ -6,4 +6,8 @@ source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: \
  E:/code/myos/start/source/kernel/include/tools/klib.h \
  E:/code/myos/start/source/comm/types.h \
  e:\x86_64-elf-tools-windows\lib\gcc\x86_64-elf\7.1.0\include\stdarg.h \
- E:/code/myos/start/source/kernel/include/cpu/irq.h
+ E:/code/myos/start/source/kernel/include/cpu/irq.h \
+ E:/code/myos/start/source/kernel/include/ipc/mutex.h \
+ E:/code/myos/start/source/kernel/include/tools/list.h \
+ E:/code/myos/start/source/kernel/include/core/task.h \
+ E:/code/myos/start/source/kernel/include/cpu/cpu.h

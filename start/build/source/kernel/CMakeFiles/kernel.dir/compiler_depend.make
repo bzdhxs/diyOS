@@ -20,7 +20,10 @@ source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj: ../source/kernel/cpu/cpu.c \
   ../source/kernel/include/os_cfg.h \
   ../source/comm/cpu_instr.h \
   ../source/comm/types.h \
-  ../source/kernel/include/cpu/irq.h
+  ../source/kernel/include/cpu/irq.h \
+  ../source/kernel/include/ipc/mutex.h \
+  ../source/kernel/include/tools/list.h \
+  ../source/kernel/include/core/task.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj: ../source/kernel/cpu/irq.c \
   ../source/kernel/include/cpu/irq.h \
@@ -59,6 +62,14 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: ../source/kernel/init/init.
   ../source/kernel/include/tools/list.h \
   ../source/kernel/include/ipc/sem.h
 
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj: ../source/kernel/ipc/mutex.c \
+  ../source/kernel/include/ipc/mutex.h \
+  ../source/kernel/include/tools/list.h \
+  ../source/kernel/include/core/task.h \
+  ../source/comm/types.h \
+  ../source/kernel/include/cpu/cpu.h \
+  ../source/kernel/include/cpu/irq.h
+
 source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj: ../source/kernel/ipc/sem.c \
   ../source/kernel/include/ipc/sem.h \
   ../source/kernel/include/tools/list.h \
@@ -86,7 +97,11 @@ source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.
   ../source/kernel/include/tools/klib.h \
   ../source/comm/types.h \
   E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h \
-  ../source/kernel/include/cpu/irq.h
+  ../source/kernel/include/cpu/irq.h \
+  ../source/kernel/include/ipc/mutex.h \
+  ../source/kernel/include/tools/list.h \
+  ../source/kernel/include/core/task.h \
+  ../source/kernel/include/cpu/cpu.h
 
 
 ../source/kernel/init/init.c:
@@ -121,6 +136,8 @@ E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 
 ../source/kernel/cpu/cpu.c:
 
+../source/kernel/include/ipc/mutex.h:
+
 ../source/kernel/cpu/irq.c:
 
 ../source/kernel/include/dev/time.h:
@@ -128,6 +145,8 @@ E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 ../source/comm/boot_info.h:
 
 ../source/kernel/init/init.h:
+
+../source/kernel/ipc/mutex.c:
 
 ../source/kernel/ipc/sem.c:
 

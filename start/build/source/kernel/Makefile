@@ -261,6 +261,30 @@ init/start.S.obj:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
 .PHONY : init/start.S.obj
 
+ipc/mutex.obj: ipc/mutex.c.obj
+.PHONY : ipc/mutex.obj
+
+# target to build an object file
+ipc/mutex.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj
+.PHONY : ipc/mutex.c.obj
+
+ipc/mutex.i: ipc/mutex.c.i
+.PHONY : ipc/mutex.i
+
+# target to preprocess a source file
+ipc/mutex.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.i
+.PHONY : ipc/mutex.c.i
+
+ipc/mutex.s: ipc/mutex.c.s
+.PHONY : ipc/mutex.s
+
+# target to generate assembly for a file
+ipc/mutex.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.s
+.PHONY : ipc/mutex.c.s
+
 ipc/sem.obj: ipc/sem.c.obj
 .PHONY : ipc/sem.obj
 
@@ -382,6 +406,9 @@ help:
 	@echo "... init/init.i"
 	@echo "... init/init.s"
 	@echo "... init/start.obj"
+	@echo "... ipc/mutex.obj"
+	@echo "... ipc/mutex.i"
+	@echo "... ipc/mutex.s"
 	@echo "... ipc/sem.obj"
 	@echo "... ipc/sem.i"
 	@echo "... ipc/sem.s"

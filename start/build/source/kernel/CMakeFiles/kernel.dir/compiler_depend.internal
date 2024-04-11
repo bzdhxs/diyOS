@@ -23,6 +23,9 @@ source/kernel/CMakeFiles/kernel.dir/cpu/cpu.c.obj
  E:/code/myos/start/source/comm/cpu_instr.h
  E:/code/myos/start/source/comm/types.h
  E:/code/myos/start/source/kernel/include/cpu/irq.h
+ E:/code/myos/start/source/kernel/include/ipc/mutex.h
+ E:/code/myos/start/source/kernel/include/tools/list.h
+ E:/code/myos/start/source/kernel/include/core/task.h
 
 source/kernel/CMakeFiles/kernel.dir/cpu/irq.c.obj
  E:/code/myos/start/source/kernel/cpu/irq.c
@@ -64,6 +67,15 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj
  E:/code/myos/start/source/kernel/include/tools/list.h
  E:/code/myos/start/source/kernel/include/ipc/sem.h
 
+source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj
+ E:/code/myos/start/source/kernel/ipc/mutex.c
+ E:/code/myos/start/source/kernel/include/ipc/mutex.h
+ E:/code/myos/start/source/kernel/include/tools/list.h
+ E:/code/myos/start/source/kernel/include/core/task.h
+ E:/code/myos/start/source/comm/types.h
+ E:/code/myos/start/source/kernel/include/cpu/cpu.h
+ E:/code/myos/start/source/kernel/include/cpu/irq.h
+
 source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj
  E:/code/myos/start/source/kernel/ipc/sem.c
  E:/code/myos/start/source/kernel/include/ipc/sem.h
@@ -96,4 +108,8 @@ source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj
  E:/code/myos/start/source/comm/types.h
  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h
  E:/code/myos/start/source/kernel/include/cpu/irq.h
+ E:/code/myos/start/source/kernel/include/ipc/mutex.h
+ E:/code/myos/start/source/kernel/include/tools/list.h
+ E:/code/myos/start/source/kernel/include/core/task.h
+ E:/code/myos/start/source/kernel/include/cpu/cpu.h
 

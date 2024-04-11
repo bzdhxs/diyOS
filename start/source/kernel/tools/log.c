@@ -3,10 +3,16 @@
 #include "tools/klib.h"
 #include "stdarg.h" // 取可变参数的值
 #include "cpu/irq.h"
+#include "ipc/mutex.h"
+
+static mutex_t mutex;
+
+
 #define COM1_PORT 0x3f8
 
 void log_init(void) {
     
+    mutex_init(&mutex);
     // 初始化串行接口
     outb(COM1_PORT + 1, 0x00);
     outb(COM1_PORT + 3, 0x80);
@@ -29,8 +35,9 @@ void log_printf(const char * fmt, ...) {
     kernel_vsprintf(str_buf,fmt,args);
     va_end(args);
 
-    irq_state_t state = irq_enter_protection();
 
+
+    mutex_lock(&mutex);
     const char * p = str_buf;
     while(*p != '\0') {
         while (inb(COM1_PORT + 5) & (1 << 6) == 0);
@@ -41,7 +48,7 @@ void log_printf(const char * fmt, ...) {
 // 变行    
     outb(COM1_PORT,'\n');
 
-    irq_leave_protection(state);
+    mutex_unlock(&mutex);
 }
 
 
