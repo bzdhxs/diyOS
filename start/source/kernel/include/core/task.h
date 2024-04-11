@@ -5,6 +5,7 @@
 #include "comm/types.h"
 #include "cpu/cpu.h"
 #include "tools/list.h"
+
 #define TASK_NAME_SIZE              32
 #define TASK_TIME_SLICE_DEFAULT     10
 
@@ -25,6 +26,7 @@ typedef struct _task_t {
 
     char name[TASK_NAME_SIZE];
     list_node_t run_node;
+    list_node_t wait_node;
     list_node_t all_node;
 
     tss_t tss;
@@ -54,7 +56,8 @@ task_t * task_first_task (void);
 void task_set_ready(task_t * task);
 void task_set_block(task_t * task);
 int sys_sched_yield(void);
-
+void task_dispatch(void);
+task_t * task_current (void);
 /**
  * @brief 建立任务睡眠
  * 
