@@ -31,9 +31,6 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -261,6 +258,30 @@ init/start.S.obj:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/init/start.S.obj
 .PHONY : init/start.S.obj
 
+ipc/sem.obj: ipc/sem.c.obj
+.PHONY : ipc/sem.obj
+
+# target to build an object file
+ipc/sem.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj
+.PHONY : ipc/sem.c.obj
+
+ipc/sem.i: ipc/sem.c.i
+.PHONY : ipc/sem.i
+
+# target to preprocess a source file
+ipc/sem.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.i
+.PHONY : ipc/sem.c.i
+
+ipc/sem.s: ipc/sem.c.s
+.PHONY : ipc/sem.s
+
+# target to generate assembly for a file
+ipc/sem.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.s
+.PHONY : ipc/sem.c.s
+
 tools/klib.obj: tools/klib.c.obj
 .PHONY : tools/klib.obj
 
@@ -358,6 +379,9 @@ help:
 	@echo "... init/init.i"
 	@echo "... init/init.s"
 	@echo "... init/start.obj"
+	@echo "... ipc/sem.obj"
+	@echo "... ipc/sem.i"
+	@echo "... ipc/sem.s"
 	@echo "... tools/klib.obj"
 	@echo "... tools/klib.i"
 	@echo "... tools/klib.s"
