@@ -130,6 +130,30 @@ kernel/fast:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/build
 .PHONY : kernel/fast
 
+core/memory.obj: core/memory.c.obj
+.PHONY : core/memory.obj
+
+# target to build an object file
+core/memory.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/memory.c.obj
+.PHONY : core/memory.c.obj
+
+core/memory.i: core/memory.c.i
+.PHONY : core/memory.i
+
+# target to preprocess a source file
+core/memory.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/memory.c.i
+.PHONY : core/memory.c.i
+
+core/memory.s: core/memory.c.s
+.PHONY : core/memory.s
+
+# target to generate assembly for a file
+core/memory.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/core/memory.c.s
+.PHONY : core/memory.c.s
+
 core/task.obj: core/task.c.obj
 .PHONY : core/task.obj
 
@@ -411,6 +435,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... kernel"
+	@echo "... core/memory.obj"
+	@echo "... core/memory.i"
+	@echo "... core/memory.s"
 	@echo "... core/task.obj"
 	@echo "... core/task.i"
 	@echo "... core/task.s"

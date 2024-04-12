@@ -14,4 +14,7 @@ source/kernel/CMakeFiles/kernel.dir/init/init.c.obj: \
  e:\x86_64-elf-tools-windows\lib\gcc\x86_64-elf\7.1.0\include\stdarg.h \
  E:/code/myos/start/source/kernel/include/core/task.h \
  E:/code/myos/start/source/kernel/include/tools/list.h \
- E:/code/myos/start/source/kernel/include/ipc/sem.h
+ E:/code/myos/start/source/kernel/include/ipc/sem.h \
+ E:/code/myos/start/source/kernel/include/core/memory.h \
+ E:/code/myos/start/source/kernel/include/tools/bitmap.h \
+ E:/code/myos/start/source/kernel/include/ipc/mutex.h
