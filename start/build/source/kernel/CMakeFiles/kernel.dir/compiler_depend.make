@@ -78,6 +78,12 @@ source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj: ../source/kernel/ipc/sem.c \
   ../source/kernel/include/cpu/cpu.h \
   ../source/kernel/include/cpu/irq.h
 
+source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.obj: ../source/kernel/tools/bitmap.c \
+  ../source/kernel/include/tools/bitmap.h \
+  ../source/comm/types.h \
+  ../source/kernel/include/tools/klib.h \
+  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h
+
 source/kernel/CMakeFiles/kernel.dir/tools/klib.c.obj: ../source/kernel/tools/klib.c \
   ../source/comm/types.h \
   ../source/kernel/include/tools/klib.h \
@@ -107,6 +113,8 @@ source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj: ../source/kernel/tools/log.
 ../source/kernel/init/init.c:
 
 ../source/kernel/core/task.c:
+
+../source/kernel/include/tools/bitmap.h:
 
 E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 
@@ -149,6 +157,8 @@ E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 ../source/kernel/ipc/mutex.c:
 
 ../source/kernel/ipc/sem.c:
+
+../source/kernel/tools/bitmap.c:
 
 ../source/kernel/tools/klib.c:
 

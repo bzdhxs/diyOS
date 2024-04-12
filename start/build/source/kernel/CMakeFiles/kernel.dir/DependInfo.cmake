@@ -27,6 +27,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/code/myos/start/source/kernel/init/init.c" "source/kernel/CMakeFiles/kernel.dir/init/init.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/init/init.c.obj.d"
   "E:/code/myos/start/source/kernel/ipc/mutex.c" "source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/ipc/mutex.c.obj.d"
   "E:/code/myos/start/source/kernel/ipc/sem.c" "source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.obj.d"
+  "E:/code/myos/start/source/kernel/tools/bitmap.c" "source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.obj.d"
   "E:/code/myos/start/source/kernel/tools/klib.c" "source/kernel/CMakeFiles/kernel.dir/tools/klib.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/tools/klib.c.obj.d"
   "E:/code/myos/start/source/kernel/tools/list.c" "source/kernel/CMakeFiles/kernel.dir/tools/list.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/tools/list.c.obj.d"
   "E:/code/myos/start/source/kernel/tools/log.c" "source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj" "gcc" "source/kernel/CMakeFiles/kernel.dir/tools/log.c.obj.d"

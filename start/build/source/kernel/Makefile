@@ -31,9 +31,6 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -309,6 +306,30 @@ ipc/sem.c.s:
 	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/ipc/sem.c.s
 .PHONY : ipc/sem.c.s
 
+tools/bitmap.obj: tools/bitmap.c.obj
+.PHONY : tools/bitmap.obj
+
+# target to build an object file
+tools/bitmap.c.obj:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.obj
+.PHONY : tools/bitmap.c.obj
+
+tools/bitmap.i: tools/bitmap.c.i
+.PHONY : tools/bitmap.i
+
+# target to preprocess a source file
+tools/bitmap.c.i:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.i
+.PHONY : tools/bitmap.c.i
+
+tools/bitmap.s: tools/bitmap.c.s
+.PHONY : tools/bitmap.s
+
+# target to generate assembly for a file
+tools/bitmap.c.s:
+	cd E:/code/myos/start/build && $(MAKE) $(MAKESILENT) -f source/kernel/CMakeFiles/kernel.dir/build.make source/kernel/CMakeFiles/kernel.dir/tools/bitmap.c.s
+.PHONY : tools/bitmap.c.s
+
 tools/klib.obj: tools/klib.c.obj
 .PHONY : tools/klib.obj
 
@@ -412,6 +433,9 @@ help:
 	@echo "... ipc/sem.obj"
 	@echo "... ipc/sem.i"
 	@echo "... ipc/sem.s"
+	@echo "... tools/bitmap.obj"
+	@echo "... tools/bitmap.i"
+	@echo "... tools/bitmap.s"
 	@echo "... tools/klib.obj"
 	@echo "... tools/klib.i"
 	@echo "... tools/klib.s"

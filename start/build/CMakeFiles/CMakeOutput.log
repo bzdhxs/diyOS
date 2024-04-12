@@ -16,13 +16,13 @@ The C compiler identification is GNU, found in "E:/code/myos/start/build/CMakeFi
 Determining if the C compiler works passed with the following output:
 Change Dir: E:/code/myos/start/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):E:/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_264c6/fast && E:/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_264c6.dir/build.make CMakeFiles/cmTC_264c6.dir/build
+Run Build Command(s):E:/x86_64-elf-tools-windows/bin/make.exe -f Makefile cmTC_29244/fast && E:/x86_64-elf-tools-windows/bin/make.exe  -f CMakeFiles/cmTC_29244.dir/build.make CMakeFiles/cmTC_29244.dir/build
 make[1]: Entering directory 'E:/code/myos/start/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_264c6.dir/testCCompiler.c.obj
-E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_264c6.dir/testCCompiler.c.obj -c E:/code/myos/start/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_264c6
-E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  "CMakeFiles/cmTC_264c6.dir/testCCompiler.c.obj"  -o cmTC_264c6 
-x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_264c6.dir/testCCompiler.c.obj: linker input file unused because linking not done
+Building C object CMakeFiles/cmTC_29244.dir/testCCompiler.c.obj
+E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe   -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  -o CMakeFiles/cmTC_29244.dir/testCCompiler.c.obj -c E:/code/myos/start/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_29244
+E:/x86_64-elf-tools-windows/bin/x86_64-elf-gcc.exe -g -c -O0 -m32  -fno-pie -fno-stack-protector -fno-asynchronous-unwind-tables  "CMakeFiles/cmTC_29244.dir/testCCompiler.c.obj"  -o cmTC_29244 
+x86_64-elf-gcc.exe: warning: CMakeFiles/cmTC_29244.dir/testCCompiler.c.obj: linker input file unused because linking not done
 make[1]: Leaving directory 'E:/code/myos/start/build/CMakeFiles/CMakeTmp'
 
 
