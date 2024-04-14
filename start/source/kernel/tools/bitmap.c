@@ -5,6 +5,14 @@ int bitmap_byte_count(int bit_count)
 {
     return (bit_count + 8 - 1) / 8;
 }
+/**
+ * @brief 初始化位图
+ *
+ * @param bitmap 位图结构
+ * @param bits  位图
+ * @param count 位图大小
+ * @param init_bit
+ */
 void bitmap_init(bitmap_t *bitmap, uint8_t *bits, int count, int init_bit)
 {
     bitmap->bit_count = count;

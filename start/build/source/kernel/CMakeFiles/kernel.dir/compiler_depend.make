@@ -11,7 +11,9 @@ source/kernel/CMakeFiles/kernel.dir/core/memory.c.obj: ../source/kernel/core/mem
   ../source/kernel/include/cpu/cpu.h \
   ../source/comm/boot_info.h \
   ../source/comm/types.h \
-  ../source/kernel/include/tools/log.h
+  ../source/kernel/include/tools/log.h \
+  ../source/kernel/include/tools/klib.h \
+  E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h
 
 source/kernel/CMakeFiles/kernel.dir/core/task.c.obj: ../source/kernel/core/task.c \
   ../source/kernel/include/core/task.h \
@@ -153,11 +155,11 @@ E:/x86_64-elf-tools-windows/lib/gcc/x86_64-elf/7.1.0/include/stdarg.h:
 
 ../source/kernel/include/tools/log.h:
 
+../source/kernel/include/tools/klib.h:
+
 ../source/kernel/init/init.c:
 
 ../source/kernel/core/task.c:
-
-../source/kernel/include/tools/klib.h:
 
 ../source/comm/cpu_instr.h:
 
