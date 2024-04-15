@@ -19,19 +19,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   3 .bss          00004f00  00012960  00012960  00003950  2**5
                   ALLOC
-  4 .debug_line   000014a5  00000000  00000000  00003950  2**0
+  4 .debug_line   000014ad  00000000  00000000  00003950  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00003963  00000000  00000000  00004df5  2**0
+  5 .debug_info   00003963  00000000  00000000  00004dfd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000fd5  00000000  00000000  00008758  2**0
+  6 .debug_abbrev 00000fd5  00000000  00000000  00008760  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_aranges 000001a0  00000000  00000000  00009730  2**3
+  7 .debug_aranges 000001a0  00000000  00000000  00009738  2**3
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    00000dd5  00000000  00000000  000098d0  2**0
+  8 .debug_str    00000dd5  00000000  00000000  000098d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .comment      00000011  00000000  00000000  0000a6a5  2**0
+  9 .comment      00000011  00000000  00000000  0000a6ad  2**0
                   CONTENTS, READONLY
- 10 .debug_frame  00001030  00000000  00000000  0000a6b8  2**2
+ 10 .debug_frame  00001030  00000000  00000000  0000a6c0  2**2
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00010000 l    d  .text	00000000 .text
@@ -64,7 +64,7 @@ SYMBOL TABLE:
 00010570 l     F .text	00000017 write_tr
 000129a0 l     O .bss	00000190 task_manager
 00010587 l     F .text	00000114 tss_init
-00012640 l     O .rodata	0000000a __func__.2102
+00012640 l     O .rodata	0000000a __func__.2116
 000107ed l     F .text	0000000a idle_task_entry
 00012b40 l     O .bss	00001000 idle_task_stack
 00000000 l    df *ABS*	00000000 cpu.c
@@ -100,7 +100,7 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 bitmap.c
 00000000 l    df *ABS*	00000000 klib.c
 00011c35 l     F .text	00000007 hlt
-0001294c l     O .data	00000004 num2ch.1915
+0001294c l     O .data	00000004 num2ch.1929
 00000000 l    df *ABS*	00000000 list.c
 00012180 l     F .text	00000013 list_is_empty
 00000000 l    df *ABS*	00000000 log.c
@@ -1065,12 +1065,12 @@ static inline list_node_t* list_first(list_t *list) {
    10568:	c3                   	ret    
 
 00010569 <hlt>:
-
 /**
  * @brief 当处理器执行到HLT指令时，它会停止执行并进入一个低功耗状态，直到外部事件唤醒处理器继续执行。
- * 
+ *
  */
-static inline void hlt (void) {
+static inline void hlt(void)
+{
    10569:	55                   	push   %ebp
    1056a:	89 e5                	mov    %esp,%ebp
     __asm__ __volatile__("hlt");
@@ -1082,13 +1082,14 @@ static inline void hlt (void) {
 
 00010570 <write_tr>:
 
-static inline void write_tr(uint16_t tss_sel) {
+static inline void write_tr(uint16_t tss_sel)
+{
    10570:	55                   	push   %ebp
    10571:	89 e5                	mov    %esp,%ebp
    10573:	83 ec 04             	sub    $0x4,%esp
    10576:	8b 45 08             	mov    0x8(%ebp),%eax
    10579:	66 89 45 fc          	mov    %ax,-0x4(%ebp)
-    __asm__ __volatile__ ("ltr %%ax"::"a"(tss_sel));
+    __asm__ __volatile__("ltr %%ax" ::"a"(tss_sel));
    1057d:	0f b7 45 fc          	movzwl -0x4(%ebp),%eax
    10581:	0f 00 d8             	ltr    %ax
 }
@@ -1817,7 +1818,7 @@ void sys_sleep (uint32_t ms) {
    10b4b:	c3                   	ret    
 
 00010b4c <lgdt>:
-static inline void lgdt(uint32_t start,uint32_t size){
+{
    10b4c:	55                   	push   %ebp
    10b4d:	89 e5                	mov    %esp,%ebp
    10b4f:	83 ec 10             	sub    $0x10,%esp
@@ -1832,7 +1833,7 @@ static inline void lgdt(uint32_t start,uint32_t size){
    10b63:	8b 45 0c             	mov    0xc(%ebp),%eax
    10b66:	83 e8 01             	sub    $0x1,%eax
    10b69:	66 89 45 fa          	mov    %ax,-0x6(%ebp)
-    __asm__ __volatile__("lgdt %[g]"::[g]"m"(gdt));
+    __asm__ __volatile__("lgdt %[g]" ::[g] "m"(gdt));
    10b6d:	0f 01 55 fa          	lgdtl  -0x6(%ebp)
 }
    10b71:	90                   	nop
@@ -1840,16 +1841,16 @@ static inline void lgdt(uint32_t start,uint32_t size){
    10b73:	c3                   	ret    
 
 00010b74 <far_jump>:
-static inline void far_jump(uint32_t selector,uint32_t offset){
+{
    10b74:	55                   	push   %ebp
    10b75:	89 e5                	mov    %esp,%ebp
    10b77:	83 ec 10             	sub    $0x10,%esp
-    uint32_t addr[] = {offset,selector};
+    uint32_t addr[] = {offset, selector};
    10b7a:	8b 45 0c             	mov    0xc(%ebp),%eax
    10b7d:	89 45 f8             	mov    %eax,-0x8(%ebp)
    10b80:	8b 45 08             	mov    0x8(%ebp),%eax
    10b83:	89 45 fc             	mov    %eax,-0x4(%ebp)
-    __asm__ __volatile__("ljmpl *(%[a])"::[a]"r"(addr));
+    __asm__ __volatile__("ljmpl *(%[a])" ::[a] "r"(addr));
    10b86:	8d 45 f8             	lea    -0x8(%ebp),%eax
    10b89:	ff 28                	ljmp   *(%eax)
 }
@@ -2115,13 +2116,13 @@ void switch_to_tss(int tss_sel)
    10d6b:	c3                   	ret    
 
 00010d6c <inb>:
-static inline uint8_t inb(uint16_t port) {
+{
    10d6c:	55                   	push   %ebp
    10d6d:	89 e5                	mov    %esp,%ebp
    10d6f:	83 ec 14             	sub    $0x14,%esp
    10d72:	8b 45 08             	mov    0x8(%ebp),%eax
    10d75:	66 89 45 ec          	mov    %ax,-0x14(%ebp)
-    __asm__ __volatile__("inb %[p],%[v]":[v]"=a"(rv):[p]"d"(port));
+    __asm__ __volatile__("inb %[p],%[v]" : [v] "=a"(rv) : [p] "d"(port));
    10d79:	0f b7 45 ec          	movzwl -0x14(%ebp),%eax
    10d7d:	89 c2                	mov    %eax,%edx
    10d7f:	ec                   	in     (%dx),%al
@@ -2133,7 +2134,7 @@ static inline uint8_t inb(uint16_t port) {
    10d88:	c3                   	ret    
 
 00010d89 <outb>:
-static inline void outb(uint16_t port,uint8_t data){
+{
    10d89:	55                   	push   %ebp
    10d8a:	89 e5                	mov    %esp,%ebp
    10d8c:	83 ec 08             	sub    $0x8,%esp
@@ -2141,7 +2142,7 @@ static inline void outb(uint16_t port,uint8_t data){
    10d92:	8b 45 0c             	mov    0xc(%ebp),%eax
    10d95:	66 89 55 fc          	mov    %dx,-0x4(%ebp)
    10d99:	88 45 f8             	mov    %al,-0x8(%ebp)
-    __asm__ __volatile__("outb %[v],%[p]"::[p]"d"(port),[v]"a"(data));
+    __asm__ __volatile__("outb %[v],%[p]" ::[p] "d"(port), [v] "a"(data));
    10d9c:	0f b7 55 fc          	movzwl -0x4(%ebp),%edx
    10da0:	0f b6 45 f8          	movzbl -0x8(%ebp),%eax
    10da4:	ee                   	out    %al,(%dx)
@@ -2151,10 +2152,10 @@ static inline void outb(uint16_t port,uint8_t data){
    10da7:	c3                   	ret    
 
 00010da8 <cli>:
-static inline void cli(void){
+{
    10da8:	55                   	push   %ebp
    10da9:	89 e5                	mov    %esp,%ebp
-    __asm__ __volatile__("cli");    
+    __asm__ __volatile__("cli");
    10dab:	fa                   	cli    
 }
    10dac:	90                   	nop
@@ -2162,10 +2163,10 @@ static inline void cli(void){
    10dae:	c3                   	ret    
 
 00010daf <sti>:
-static inline void sti(void){
+{
    10daf:	55                   	push   %ebp
    10db0:	89 e5                	mov    %esp,%ebp
-    __asm__ __volatile__("sti");    
+    __asm__ __volatile__("sti");
    10db2:	fb                   	sti    
 }
    10db3:	90                   	nop
@@ -2173,7 +2174,7 @@ static inline void sti(void){
    10db5:	c3                   	ret    
 
 00010db6 <lidt>:
-static inline void lidt(uint32_t start,uint32_t size){
+{
    10db6:	55                   	push   %ebp
    10db7:	89 e5                	mov    %esp,%ebp
    10db9:	83 ec 10             	sub    $0x10,%esp
@@ -2188,7 +2189,7 @@ static inline void lidt(uint32_t start,uint32_t size){
    10dcd:	8b 45 0c             	mov    0xc(%ebp),%eax
    10dd0:	83 e8 01             	sub    $0x1,%eax
    10dd3:	66 89 45 fa          	mov    %ax,-0x6(%ebp)
-    __asm__ __volatile__("lidt %[g]"::[g]"m"(idt));
+    __asm__ __volatile__("lidt %[g]" ::[g] "m"(idt));
    10dd7:	0f 01 5d fa          	lidtl  -0x6(%ebp)
 }
    10ddb:	90                   	nop
@@ -2196,7 +2197,7 @@ static inline void lidt(uint32_t start,uint32_t size){
    10ddd:	c3                   	ret    
 
 00010dde <hlt>:
-static inline void hlt (void) {
+{
    10dde:	55                   	push   %ebp
    10ddf:	89 e5                	mov    %esp,%ebp
     __asm__ __volatile__("hlt");
@@ -2208,12 +2209,13 @@ static inline void hlt (void) {
 
 00010de5 <read_eflags>:
 
-static inline uint32_t read_eflags (void) {
+static inline uint32_t read_eflags(void)
+{
    10de5:	55                   	push   %ebp
    10de6:	89 e5                	mov    %esp,%ebp
    10de8:	83 ec 10             	sub    $0x10,%esp
     uint32_t eflags;
-    __asm__ __volatile__ ("pushf\n\tpop %%eax":"=a"(eflags));    
+    __asm__ __volatile__("pushf\n\tpop %%eax" : "=a"(eflags));
    10deb:	9c                   	pushf  
    10dec:	58                   	pop    %eax
    10ded:	89 45 fc             	mov    %eax,-0x4(%ebp)
@@ -2225,10 +2227,11 @@ static inline uint32_t read_eflags (void) {
 
 00010df5 <write_eflags>:
 
-static inline void write_eflags (uint32_t eflags) {
+static inline void write_eflags(uint32_t eflags)
+{
    10df5:	55                   	push   %ebp
    10df6:	89 e5                	mov    %esp,%ebp
-    __asm__ __volatile__ ("push %%eax\n\tpopf"::"a"(eflags));  
+    __asm__ __volatile__("push %%eax\n\tpopf" ::"a"(eflags));
    10df8:	8b 45 08             	mov    0x8(%ebp),%eax
    10dfb:	50                   	push   %eax
    10dfc:	9d                   	popf   
@@ -3239,7 +3242,7 @@ void irq_leave_protection(irq_state_t state)
    1153d:	c3                   	ret    
 
 0001153e <outb>:
-static inline void outb(uint16_t port,uint8_t data){
+{
    1153e:	55                   	push   %ebp
    1153f:	89 e5                	mov    %esp,%ebp
    11541:	83 ec 08             	sub    $0x8,%esp
@@ -3247,7 +3250,7 @@ static inline void outb(uint16_t port,uint8_t data){
    11547:	8b 45 0c             	mov    0xc(%ebp),%eax
    1154a:	66 89 55 fc          	mov    %dx,-0x4(%ebp)
    1154e:	88 45 f8             	mov    %al,-0x8(%ebp)
-    __asm__ __volatile__("outb %[v],%[p]"::[p]"d"(port),[v]"a"(data));
+    __asm__ __volatile__("outb %[v],%[p]" ::[p] "d"(port), [v] "a"(data));
    11551:	0f b7 55 fc          	movzwl -0x4(%ebp),%edx
    11555:	0f b6 45 f8          	movzbl -0x8(%ebp),%eax
    11559:	ee                   	out    %al,(%dx)
@@ -4175,7 +4178,7 @@ int bitmap_alloc_nbits(bitmap_t *bitmap, int bit, int count)
    11c34:	c3                   	ret    
 
 00011c35 <hlt>:
-static inline void hlt (void) {
+{
    11c35:	55                   	push   %ebp
    11c36:	89 e5                	mov    %esp,%ebp
     __asm__ __volatile__("hlt");
@@ -5179,13 +5182,13 @@ list_node_t* list_remove(list_t *list, list_node_t *node) {
    12379:	c3                   	ret    
 
 0001237a <inb>:
-static inline uint8_t inb(uint16_t port) {
+{
    1237a:	55                   	push   %ebp
    1237b:	89 e5                	mov    %esp,%ebp
    1237d:	83 ec 14             	sub    $0x14,%esp
    12380:	8b 45 08             	mov    0x8(%ebp),%eax
    12383:	66 89 45 ec          	mov    %ax,-0x14(%ebp)
-    __asm__ __volatile__("inb %[p],%[v]":[v]"=a"(rv):[p]"d"(port));
+    __asm__ __volatile__("inb %[p],%[v]" : [v] "=a"(rv) : [p] "d"(port));
    12387:	0f b7 45 ec          	movzwl -0x14(%ebp),%eax
    1238b:	89 c2                	mov    %eax,%edx
    1238d:	ec                   	in     (%dx),%al
@@ -5197,7 +5200,7 @@ static inline uint8_t inb(uint16_t port) {
    12396:	c3                   	ret    
 
 00012397 <outb>:
-static inline void outb(uint16_t port,uint8_t data){
+{
    12397:	55                   	push   %ebp
    12398:	89 e5                	mov    %esp,%ebp
    1239a:	83 ec 08             	sub    $0x8,%esp
@@ -5205,7 +5208,7 @@ static inline void outb(uint16_t port,uint8_t data){
    123a0:	8b 45 0c             	mov    0xc(%ebp),%eax
    123a3:	66 89 55 fc          	mov    %dx,-0x4(%ebp)
    123a7:	88 45 f8             	mov    %al,-0x8(%ebp)
-    __asm__ __volatile__("outb %[v],%[p]"::[p]"d"(port),[v]"a"(data));
+    __asm__ __volatile__("outb %[v],%[p]" ::[p] "d"(port), [v] "a"(data));
    123aa:	0f b7 55 fc          	movzwl -0x4(%ebp),%edx
    123ae:	0f b6 45 f8          	movzbl -0x8(%ebp),%eax
    123b2:	ee                   	out    %al,(%dx)
